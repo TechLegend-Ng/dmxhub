@@ -2,7 +2,7 @@
   "name": "dmxhub",
   "compatibility_date": "2025-07-21",
   "assets": {
-    "directory": "./",
+    "directory": "./public",
     "not_found_handling": "single-page-application"
   }
 }
