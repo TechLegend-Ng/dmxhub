@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DMXHUB | Watch IbakaTV Nollywood Movies - Trailers & Full Movies</title>
+  <meta name="description" content="DMXHUB - Watch premium IbakaTV Nollywood movies with official trailers. MovieBox-style streaming for Romance, Drama, Comedy. Trailer autoplays muted, full movie on click." />
+  <link rel="canonical" href="https://dmxhub.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<header class="mbx-header" id="mainHeader">
+  <div class="mbx-header-inner">
+    <a href="./index.html" class="mbx-logo" aria-label="DMXHUB Home">
+      <span class="mbx-logo-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="7" fill="url(#g)"/>
+          <path d="M9 8.5L19.5 14L9 19.5V8.5Z" fill="black"/>
+          <defs><linearGradient id="g" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#1cb7ff"/><stop offset="1" stop-color="#2ff58b"/></linearGradient></defs>
+        </svg>
+      </span>
+      <span class="mbx-logo-text"><span class="logo-dmx">DMX</span><span class="logo-hub">HUB</span></span>
+      <span class="logo-dotcom">.COM</span>
+    </a>
+    <nav class="mbx-nav" id="mbxNav">
+      <a href="./index.html" class="nav-link active">Home</a>
+      <a href="./index.html#rows" class="nav-link" id="navMoviesBtn">Movies</a>
+      <button class="nav-link" id="navTopRatedBtn" type="button">Top Rated</button>
+      <a href="./about.html" class="nav-link">About</a>
+      <a href="./contact.html" class="nav-link">Contact</a>
+    </nav>
+    <div class="mbx-actions">
+      <div class="mbx-search-wrap" id="searchWrap">
+        <span class="search-icon">🔍</span>
+        <input id="searchInput" class="mbx-search-input" type="text" placeholder="Search movies, cast, genre..." autocomplete="off" spellcheck="false" />
+        <button class="search-clear" id="searchClear" type="button" aria-label="Clear search">✕</button>
+      </div>
+      <a href="./login.html" class="btn-premium"><span class="premium-dot"></span> Premium</a>
+      <button class="mbx-hamburger" id="hamburgerBtn" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mbx-mobile-search" id="mobileSearchRow">
+    <div class="mbx-search-wrap full">
+      <span class="search-icon">🔍</span>
+      <input id="searchInputMobile" class="mbx-search-input" type="text" placeholder="Search movies, cast, genre..." autocomplete="off" />
+    </div>
+  </div>
+  <div class="mbx-drawer" id="mobileDrawer">
+    <div class="drawer-inner">
+      <a href="./index.html">🏠 Home</a>
+      <a href="./about.html">ℹ️ About</a>
+      <a href="./contact.html">✉️ Contact</a>
+      <a href="./privacy.html">🔒 Privacy</a>
+      <a href="./login.html" class="drawer-premium">⭐ Go Premium</a>
+    </div>
+  </div>
+</header>
+
+<div class="mbx-filter-sticky" id="filterSticky">
+  <div class="filter-bar" id="filterBar"></div>
+</div>
+
+<div class="status-wrap">
+  <div class="status" id="statusBar">Loading movies...</div>
+  <div class="status-actions"><span class="status-dot"></span><span id="statusCount">—</span></div>
+</div>
+
+<main id="rowsContainer" class="rows-container"></main>
+
+<footer class="mbx-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="mbx-logo-text"><span class="logo-dmx">DMX</span><span class="logo-hub">HUB</span></span>
+      <span>MovieBox-style Nollywood hub • Trailer autoplay muted with unmute control • Full never autoplays • Coming Soon popup when only trailer</span>
+    </div>
+    <div class="footer-links">
+      <a href="./about.html">About</a><a href="./contact.html">Contact</a><a href="./privacy.html">Privacy</a><a href="./login.html">Login</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 DMXHUB • IbakaTV Official Embeds • All buttons fixed • Trailer muted autoplay + Full click-to-play</div>
+</footer>
+
+<div id="comingSoonModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" type="button" aria-label="Close">✕</button>
+    <div class="modal-icon">🎬</div>
+    <h3>Coming Soon</h3>
+    <p id="comingSoonText">Full movie for this title is not available yet.</p>
+    <div class="modal-actions">
+      <button class="btn-primary" id="modalOk" type="button">Got it</button>
+      <button class="btn-secondary" id="modalTrailerBtn" type="button">Watch Trailer</button>
+    </div>
+  </div>
+</div>
+
+<script src="./movies-data.js"></script>
+<script>
+const PLACEHOLDER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='450'%3E%3Crect width='100%25' height='100%25' fill='%23121214'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23333' font-family='monospace' font-size='14'%3EDMXHUB%3C/text%3E%3C/svg%3E";
+let visibleCount = 24;
+let currentGenre = 'All';
+let searchTerm = '';
+const genres = ['All','Top Rated','Romance','Drama','Comedy','Thriller','Family'];
+const rowLimits = { 'Top Rated': 12, 'Romance': 12, 'Drama': 12, 'Comedy': 12, 'Thriller': 12, 'Family': 12 };
+
+// --- FIX: Randomization helpers ---
+function shuffle(arr){
+  const a = [...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+function getDisplayGenre(movie, rowGenre){
+  // If we are rendering inside a specific genre row, show that row's genre (so card matches row)
+  if(rowGenre && rowGenre !== 'All' && rowGenre !== 'Top Rated' && Array.isArray(movie.genre) && movie.genre.includes(rowGenre)){
+    return rowGenre;
+  }
+  // Otherwise pick a random genre from the movie that is in our filter list, else random from its list
+  const relevant = (movie.genre||[]).filter(g => genres.includes(g));
+  const pool = relevant.length ? relevant : (movie.genre||[]);
+  if(!pool.length) return '';
+  return pool[Math.floor(Math.random()*pool.length)];
+}
+
+
+function slugify(s){ return (s||'').toString().trim().toLowerCase().replace(/\\s+/g,'-').replace(/[^a-z0-9-]/g,''); }
+function getCastNames(movie){
+  if(!movie.cast) return '';
+  if(Array.isArray(movie.cast) && typeof movie.cast[0]==='string') return movie.cast.join(' ');
+  if(Array.isArray(movie.cast)) return movie.cast.map(c=> typeof c==='string'?c:(c.name||'')).join(' ');
+  return '';
+}
+function getFiltered(){
+  return MOVIES.filter(m=>{
+    const mg = currentGenre==='All' ? true : currentGenre==='Top Rated' ? (m.rating>=8.5) : (Array.isArray(m.genre) && m.genre.includes(currentGenre));
+    const castStr = getCastNames(m);
+    const q = (m.title+' '+castStr+' '+(m.genre||[]).join(' ')).toLowerCase();
+    const ms = searchTerm==='' || q.includes(searchTerm.toLowerCase());
+    return mg && ms;
+  });
+}
+
+const header = document.getElementById('mainHeader');
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileDrawer = document.getElementById('mobileDrawer');
+const searchInput = document.getElementById('searchInput');
+const searchInputMobile = document.getElementById('searchInputMobile');
+const searchClear = document.getElementById('searchClear');
+const navTopRatedBtn = document.getElementById('navTopRatedBtn');
+const navMoviesBtn = document.getElementById('navMoviesBtn');
+
+let drawerOpen = false;
+function toggleDrawer(){
+  drawerOpen = !drawerOpen;
+  mobileDrawer.classList.toggle('open', drawerOpen);
+  hamburgerBtn.classList.toggle('open', drawerOpen);
+  document.body.style.overflow = drawerOpen ? 'hidden' : '';
+}
+function closeDrawer(){
+  drawerOpen = false;
+  mobileDrawer.classList.remove('open');
+  hamburgerBtn.classList.remove('open');
+  document.body.style.overflow = '';
+}
+if(hamburgerBtn) hamburgerBtn.addEventListener('click', toggleDrawer);
+if(mobileDrawer) mobileDrawer.addEventListener('click', (e)=>{ if(e.target===mobileDrawer) closeDrawer(); });
+document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && drawerOpen) closeDrawer(); });
+window.addEventListener('scroll', ()=>{
+  if(window.scrollY>10) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
+if(navTopRatedBtn){
+  navTopRatedBtn.addEventListener('click', ()=>{
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+    const topChip = document.querySelector('.chip[data-genre="Top Rated"]');
+    if(topChip) topChip.classList.add('active');
+    currentGenre='Top Rated'; visibleCount=24; render(); closeDrawer();
+    document.getElementById('rowsContainer').scrollIntoView({behavior:'smooth'});
+  });
+}
+if(navMoviesBtn){
+  navMoviesBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    document.getElementById('rowsContainer').scrollIntoView({behavior:'smooth'});
+    closeDrawer();
+  });
+}
+
+const bar = document.getElementById('filterBar');
+function buildChips(){
+  bar.innerHTML='';
+  genres.forEach(g=>{
+    const b=document.createElement('button');
+    b.className='chip'+(g===currentGenre?' active':'');
+    b.textContent=g;
+    b.dataset.genre=g;
+    b.type='button';
+    b.addEventListener('click', ()=>{
+      document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+      b.classList.add('active');
+      currentGenre=g; visibleCount=24; render();
+    });
+    bar.appendChild(b);
+  });
+}
+buildChips();
+
+function cardHTML(m, rowGenre){
+  const hasTrailer = !!(m.trailerId && m.trailerId !== m.youtubeId);
+  const trailerBadge = hasTrailer ? '<span class="card-badge badge-trailer">Trailer</span>' : '';
+  const onlyTrailer = !m.youtubeId && !!m.trailerId;
+  const displayGenre = getDisplayGenre(m, rowGenre);
+  return '<article class="mb-card" data-id="'+m.id+'" tabindex="0" role="button" aria-label="Watch '+m.title.replace(/"/g,'')+'">'+
+      '<div class="card-poster-wrap">'+
+        '<span class="mb-badge badge-hd">HD</span>'+
+        '<span class="mb-badge badge-rating">★ '+m.rating+'</span>'+
+        trailerBadge+
+        (onlyTrailer ? '<span class="mb-badge" style="left:8px;bottom:8px;top:auto;background:rgba(255,80,80,0.9);color:#fff">Coming Soon</span>' : '')+
+        '<img loading="lazy" src="'+m.poster+'" data-src="'+m.posterHigh+'" alt="'+m.title.replace(/"/g,'')+'" onerror="this.src=\''+PLACEHOLDER+'\'"/>'+
+        '<div class="card-hover-overlay"><div class="play-circle"><span>▶</span></div><div class="hover-meta">'+(hasTrailer ? '▶ Trailer (auto-muted)' : (onlyTrailer ? '▶ Trailer Only' : '▶ Full Movie'))+'</div></div>'+
+      '</div>'+
+      '<div class="mb-card-info"><div class="mb-card-title">'+m.title+'</div><div class="mb-card-meta"><span>'+(m.year||'')+'</span>•<span>'+displayGenre+'</span>•<span>'+(m.duration||'')+'</span></div></div>'+
+    '</article>';
+}
+
+function scrollRow(genreId, dir){
+  const slug = slugify(genreId);
+  const el = document.getElementById('track-'+slug);
+  if(el) el.scrollBy({left: dir*560, behavior:'smooth'});
+}
+function loadMoreGenre(g){
+  rowLimits[g] = (rowLimits[g]||12)+12;
+  render();
+}
+window.scrollRow = scrollRow;
+window.loadMoreGenre = loadMoreGenre;
+
+function render(){
+  const filtered = getFiltered();
+  const container = document.getElementById('rowsContainer');
+  const statusBar = document.getElementById('statusBar');
+  const statusCount = document.getElementById('statusCount');
+
+  const setupLazy = () => {
+    if('IntersectionObserver' in window){
+      const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const img=e.target; if(img.dataset.src){img.src=img.dataset.src; delete img.dataset.src;} obs.unobserve(img);}})},{rootMargin:'300px'});
+      document.querySelectorAll('img[data-src]').forEach(img=>obs.observe(img));
+    }
+  };
+  const attachCardEvents = ()=>{
+    document.querySelectorAll('.mb-card').forEach(card=>{
+      const id = parseInt(card.dataset.id);
+      const go = ()=>{ location.href='./watch.html?id='+id+'&play=trailer'; };
+      card.addEventListener('click', go);
+      card.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); go(); } });
+    });
+  };
+
+  statusCount.textContent = filtered.length+' movies';
+
+  if(currentGenre==='All' && searchTerm===''){
+    statusBar.textContent = 'MovieBox Style • '+MOVIES.length+' Movies • Click poster → Trailer autoplay muted + Full on click • All buttons fixed • Randomized';
+    let html = '';
+    genres.slice(1).forEach(g=>{
+      const slug = slugify(g);
+      const baseList = g==='Top Rated'? MOVIES.filter(m=>m.rating>=8.5) : MOVIES.filter(m=> Array.isArray(m.genre) && m.genre.includes(g));
+      const moviesForG = shuffle(baseList);
+      const limit = rowLimits[g]||12;
+      const toShow = moviesForG.slice(0, limit);
+      const hasMore = moviesForG.length > limit;
+      html += '<section class="genre-section" id="genre-'+slug+'">'+
+        '<div class="row-header"><div class="row-title-wrap"><h2 class="row-title">'+g+' <span class="row-title-count">'+moviesForG.length+'</span></h2><div class="row-line"></div></div>'+
+        '<div class="row-actions">'+
+          '<button class="scroll-btn" type="button" onclick="scrollRow(\''+g.replace(/'/g,"\\'")+'\',-1)" aria-label="Scroll left">‹</button>'+
+          '<button class="scroll-btn" type="button" onclick="scrollRow(\''+g.replace(/'/g,"\\'")+'\',1)" aria-label="Scroll right">›</button>'+
+          (hasMore?'<button class="btn-more" type="button" onclick="loadMoreGenre(\''+g.replace(/'/g,"\\'")+'\')">Load More ('+(moviesForG.length-limit)+')</button>':'<span class="row-end">End</span>')+
+        '</div></div>'+
+        '<div class="row-track" id="track-'+slug+'">'+toShow.map(m=>cardHTML(m,g)).join('')+'</div></section>';
+    });
+    container.innerHTML = html;
+    setupLazy(); attachCardEvents();
+  } else {
+    const shuffledFiltered = shuffle(filtered);
+    const toShow = shuffledFiltered.slice(0, visibleCount);
+    statusBar.textContent = 'Showing '+toShow.length+' of '+filtered.length+' • '+currentGenre+' • '+(searchTerm?'Search: '+searchTerm:'All')+' • Shuffled';
+    container.innerHTML = '<section class="genre-section"><div class="row-header"><div class="row-title-wrap"><h2 class="row-title">'+(searchTerm?'Search: "'+searchTerm+'"':currentGenre)+' <span class="row-title-count">'+filtered.length+'</span></h2><div class="row-line"></div></div><div class="row-actions"><button class="scroll-btn" type="button" onclick="scrollRow(\'main\',-1)">‹</button><button class="scroll-btn" type="button" onclick="scrollRow(\'main\',1)">›</button></div></div><div class="row-track" id="track-main">'+toShow.map(m=>cardHTML(m,currentGenre)).join('')+'</div><div class="load-more-wrap">'+(filtered.length>visibleCount?'<button class="btn-load" type="button" id="loadMoreBtn">Load More ('+(filtered.length-visibleCount)+' left)</button>':'<span class="row-end">'+(filtered.length>0?'End of '+currentGenre+' • '+filtered.length+' movies':'No results for "'+searchTerm+'"')+'</span>')+'</div></section>';
+    const loadBtn = document.getElementById('loadMoreBtn');
+    if(loadBtn) loadBtn.addEventListener('click', ()=>{ visibleCount+=24; render(); });
+    setupLazy(); attachCardEvents();
+  }
+}
+
+function handleSearch(val){
+  searchTerm = val;
+  visibleCount=24;
+  render();
+  if(searchInput && searchInput.value!==val) searchInput.value=val;
+  if(searchInputMobile && searchInputMobile.value!==val) searchInputMobile.value=val;
+  if(searchClear) searchClear.style.display = val ? 'flex' : 'none';
+}
+if(searchInput){
+  searchInput.addEventListener('input', e=> handleSearch(e.target.value));
+  searchInput.addEventListener('keydown', e=>{ if(e.key==='Escape'){ handleSearch(''); searchInput.blur(); } });
+}
+if(searchInputMobile){
+  searchInputMobile.addEventListener('input', e=> handleSearch(e.target.value));
+}
+if(searchClear){
+  searchClear.addEventListener('click', ()=>{ handleSearch(''); searchInput.focus(); });
+}
+
+const modal = document.getElementById('comingSoonModal');
+function showComingSoon(title, trailerId){
+  document.getElementById('comingSoonText').innerHTML = 'Full movie for <b>"'+title+'"</b> is not available yet. Only trailer is available.';
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+}
+function closeComingSoon(){
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+window.showComingSoon = showComingSoon;
+window.closeComingSoon = closeComingSoon;
+document.getElementById('modalClose').addEventListener('click', closeComingSoon);
+document.getElementById('modalOk').addEventListener('click', closeComingSoon);
+modal.addEventListener('click', (e)=>{ if(e.target===modal) closeComingSoon(); });
+
+render();
+</script>
+</body>
+</html>

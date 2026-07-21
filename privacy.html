@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | DMXHUB</title>
+  <meta name="description" content="Privacy Policy for DMXHUB" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    .page-wrap{max-width:900px;margin:0 auto;padding:92px 20px 40px}
+    .glass{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:20px;margin-bottom:16px;backdrop-filter:blur(12px)}
+    .glass h1{font-size:2rem;font-weight:900;margin-bottom:10px}
+    .glass h2{font-size:1.2rem;font-weight:800;margin:18px 0 10px}
+    .glass p{color:rgba(255,255,255,0.72);line-height:1.7;font-size:0.92rem;margin-bottom:10px}
+    .glass a{color:#1cb7ff}
+    label{display:block;font-size:0.8rem;color:rgba(255,255,255,0.6);margin:12px 0 6px;font-weight:600}
+    input, textarea, select{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 14px;color:#fff;outline:none;font-family:inherit;font-size:0.9rem}
+    input:focus, textarea:focus, select:focus{border-color:rgba(28,183,255,0.4);background:rgba(255,255,255,0.1)}
+    .btn-send{margin-top:16px;width:100%;background:linear-gradient(91deg,#1cb7ff,#2ff58b);color:#000;border:none;padding:12px;border-radius:999px;font-weight:800;cursor:pointer;transition:.15s}
+    .btn-send:hover{transform:translateY(-1px)}
+    @media(max-width:768px){.page-wrap{padding:80px 14px 30px}}
+  </style>
+</head>
+<body>
+<header class="mbx-header" id="mainHeader">
+  <div class="mbx-header-inner">
+    <a href="./index.html" class="mbx-logo">
+      <span class="mbx-logo-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="url(#g)"/><path d="M9 8.5L19.5 14L9 19.5V8.5Z" fill="black"/><defs><linearGradient id="g" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#1cb7ff"/><stop offset="1" stop-color="#2ff58b"/></linearGradient></defs></svg></span>
+      <span class="mbx-logo-text"><span class="logo-dmx">DMX</span><span class="logo-hub">HUB</span></span>
+      <span class="logo-dotcom">.COM</span>
+    </a>
+    <nav class="mbx-nav">
+      <a href="./index.html" class="nav-link">Home</a>
+      <a href="./about.html" class="nav-link">About</a>
+      <a href="./contact.html" class="nav-link">Contact</a>
+      <a href="./privacy.html" class="nav-link">Privacy</a>
+    </nav>
+    <div class="mbx-actions">
+      <a href="./index.html" class="btn-premium"><span class="premium-dot"></span> Browse</a>
+      <button class="mbx-hamburger" id="hamburgerBtn" type="button"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mbx-drawer" id="mobileDrawer">
+    <div class="drawer-inner">
+      <a href="./index.html">🏠 Home</a>
+      <a href="./about.html">ℹ️ About</a>
+      <a href="./contact.html">✉️ Contact</a>
+      <a href="./privacy.html">🔒 Privacy</a>
+      <a href="./login.html">👤 Login</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <div class="glass">
+    <h1>Privacy Policy</h1>
+    <p style="color:rgba(255,255,255,0.5)">Last updated: July 2026 • DMXHUB MovieBox-style hub</p>
+    <h2>1. Overview</h2>
+    <p>DMXHUB embeds YouTube videos (youtube-nocookie). We don't host movies. Trailer autoplays muted, full movie requires click.</p>
+    <h2>2. Cookies & YouTube</h2>
+    <p>We use youtube-nocookie.com to reduce tracking. YouTube may still set cookies when you play trailer/full movie. Mute/unmute control uses YouTube IFrame API.</p>
+    <h2>3. Data We Collect</h2>
+    <p>Search terms stay in your browser. Contact form data only if you submit. No tracking of mute state.</p>
+    <h2>4. Coming Soon</h2>
+    <p>If a title has only trailer, we show Coming Soon popup for full movie. No data collected.</p>
+    <h2>5. Contact</h2>
+    <p>Email: privacy@dmxhub.com</p>
+  </div>
+</div>
+
+<script>
+const hb=document.getElementById('hamburgerBtn');const dr=document.getElementById('mobileDrawer');let o=false;
+function td(){o=!o;dr.classList.toggle('open',o);hb.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';}
+function cd(){o=false;dr.classList.remove('open');hb.classList.remove('open');document.body.style.overflow='';}
+if(hb)hb.addEventListener('click',td);if(dr)dr.addEventListener('click',e=>{if(e.target===dr)cd();});
+window.addEventListener('scroll',()=>{const h=document.getElementById('mainHeader'); if(window.scrollY>10) h.classList.add('scrolled'); else h.classList.remove('scrolled');});
+</script>
+</body>
+</html>
