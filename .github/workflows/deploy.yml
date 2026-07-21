@@ -1,17 +1,29 @@
 name: Deploy to Cloudflare Workers
+
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    branches: [main]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Auto-build public folder
+        run: |
+          mkdir -p public
+          cp -f *.html public/ 2>/dev/null || true
+          cp -f *.css public/ 2>/dev/null || true
+          cp -f *.js public/ 2>/dev/null || true
+          cp -f movies-data.json public/ 2>/dev/null || true
+          echo "Files in public:"
+          ls -lh public/
+
       - name: Deploy to Cloudflare
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
           wranglerVersion: "3.114.3"
