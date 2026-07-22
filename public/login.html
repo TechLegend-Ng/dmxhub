@@ -7,30 +7,30 @@
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 <style>
 body{background:#0f1115;color:#fff;font-family:Inter,system-ui;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}
-.card{background:#171a21;border:1px solid #2a2d36;border-radius:16px;padding:32px;width:100%;max-width:400px}
-input{width:100%;padding:12px 14px;margin:8px 0;border-radius:8px;border:1px solid #333;background:#0f1115;color:#fff;box-sizing:border-box}
-.btn{width:100%;padding:12px;border-radius:10px;border:0;font-weight:700;cursor:pointer;margin-top:10px}
-.btn-primary{background:linear-gradient(90deg,#2af,#6cf);color:#000}
-.btn-google{background:#fff;color:#000;display:flex;align-items:center;justify-content:center;gap:8px}
-.or{text-align:center;margin:16px 0;color:#777;font-size:14px}
-h1{margin:0 0 8px 0;font-size:24px}
-.sub{color:#888;font-size:14px;margin-bottom:20px}
+.card{background:#171a21;border:1px solid #2a2d36;border-radius:16px;padding:32px;width:100%;max-width:420px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+input{width:100%;padding:12px 14px;margin:8px 0;border-radius:8px;border:1px solid #333;background:#0f1115;color:#fff;box-sizing:border-box;font-size:15px}
+.btn{width:100%;padding:13px;border-radius:10px;border:0;font-weight:700;cursor:pointer;margin-top:10px;font-size:15px}
+.btn-primary{background:linear-gradient(90deg,#4da3ff,#6cf);color:#000}
+.or{text-align:center;margin:18px 0;color:#666;font-size:13px;text-transform:uppercase;letter-spacing:1px}
+h1{margin:0 0 8px 0;font-size:26px}
+.sub{color:#888;font-size:14px;margin-bottom:22px;line-height:1.5}
 a{color:#6cf;text-decoration:none}
-#status{margin-top:12px;font-size:13px;color:#8f8}
+#status{margin-top:14px;font-size:13px;min-height:18px}
+.g_id_signin{width:100%;display:flex;justify-content:center}
 </style>
 </head>
 <body>
 <div class="card">
 <h1>Welcome back</h1>
-<p class="sub">All movies are free. Login unlocks history & smart recommendations.</p>
+<p class="sub">Free Asian dramas. Login to save watch history & get recommendations.</p>
 
 <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
-<input id="password" type="password" placeholder="Password" autocomplete="current-password">
-<button class="btn btn-primary" onclick="doLogin()">Sign in</button>
+<input id="password" type="password" placeholder="Password (min 6)" autocomplete="current-password">
+<button class="btn btn-primary" onclick="doLogin()">Sign in with Email</button>
 
 <div class="or">or</div>
 
-<!-- GOOGLE BUTTON -->
+<!-- REAL GOOGLE CLIENT ID - FIXED -->
 <div id="g_id_onload"
      data-client_id="249047944037-4kvhicki95p2fou38e8o6loebamc96c1.apps.googleusercontent.com"
      data-context="signin"
@@ -44,16 +44,12 @@ a{color:#6cf;text-decoration:none}
      data-theme="filled_black"
      data-text="continue_with"
      data-size="large"
-     data-logo_alignment="left"
-     style="width:100%">
+     data-width="350">
 </div>
-<button class="btn btn-google" onclick="document.querySelector('.g_id_signin div[role=button]')?.click()" style="display:none" id="fallbackGoogle">
-  <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" width="18"> Continue with Google
-</button>
 
 <p id="status"></p>
-<p style="font-size:13px;margin-top:16px;text-align:center">New to DramaXHub? <a href="/signup.html">Create free account</a></p>
-<p style="font-size:12px;text-align:center;margin-top:8px"><a href="/">← Back to home</a></p>
+<p style="font-size:13px;margin-top:18px;text-align:center">No account? <a href="/signup.html">Create free account</a></p>
+<p style="font-size:12px;text-align:center;margin-top:10px"><a href="/">← Back to home</a></p>
 </div>
 
 <script>
@@ -65,7 +61,7 @@ async function doLogin(){
   if(!email || !password) return setStatus('Enter email and password', true);
   setStatus('Signing in...');
   try{
-    const r = await fetch(API + '/api/auth/login', {
+    const r = await fetch('/api/auth/login', {
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify({email, password}),
@@ -81,9 +77,9 @@ async function doLogin(){
 }
 
 async function handleGoogle(response){
-  setStatus('Verifying with Google...');
+  setStatus('Verifying Google login...');
   try{
-    const r = await fetch(API + '/api/auth/google', {
+    const r = await fetch('/api/auth/google', {
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify({ credential: response.credential }),
@@ -91,28 +87,19 @@ async function handleGoogle(response){
     });
     const data = await r.json();
     if(!r.ok) throw new Error(data.error || 'Google login failed');
-    setStatus('Google login successful! Redirecting...');
-    // Small delay so cookie sets
-    setTimeout(()=> location.href = '/', 500);
+    setStatus('Logged in as ' + (data.user.name || data.user.email) + '! Redirecting...');
+    setTimeout(()=> location.href = '/', 700);
   }catch(e){
     console.error(e);
     setStatus('Google login failed: ' + e.message, true);
-    alert('Google login failed: ' + e.message);
   }
 }
 
 function setStatus(msg, isError=false){
   const el = document.getElementById('status');
-  el.style.color = isError ? '#ff6b6b' : '#8fffa0';
+  el.style.color = isError ? '#ff6b6b' : '#7CFF9E';
   el.textContent = msg;
 }
-
-// check if already logged in
-fetch('/api/auth/me', {credentials:'include'}).then(r=>r.json()).then(d=>{
-  if(d.user){
-    document.body.innerHTML = '<div class="card"><h1>Already logged in</h1><p class="sub">Hi '+ (d.user.name||d.user.email) +'</p><p><a href="/">Go to home</a> | <a href="#" onclick="fetch(\'/api/auth/logout\',{method:\'POST\',credentials:\'include\'}).then(()=>location.reload())">Logout</a></p></div>';
-  }
-});
 </script>
 </body>
 </html>

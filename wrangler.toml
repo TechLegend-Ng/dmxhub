@@ -1,17 +1,16 @@
 name = "dmxhub"
 main = "worker.js"
-compatibility_date = "2024-07-22"
+compatibility_date = "2024-01-01"
+assets = { directory = "./", not_found_handling = "single-page-application" }
 
-[assets]
-directory = "./"
-binding = "ASSETS"
-not_found_handling = "single-page-application"
-exclude = ["functions", ".github", ".wrangler", "public", "node_modules"]
+[vars]
+GOOGLE_CLIENT_ID = "249047944037-4kvhicki95p2fou38e8o6loebamc96c1.apps.googleusercontent.com"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "dmxhub-db"
-database_id = "a4d18838-8bcd-4e49-898b-3a2ca85dc446"
+database_id = "3c8f4c5d-3dc4-49eb-9eb6-5b8c2dc6146c"
 
-[vars]
-GOOGLE_CLIENT_ID = "249047944037-4kvhicki95p2fou38e8o6loebamc96c1.apps.googleusercontent.com"
+[assets]
+directory = "./"
+exclude = ["functions", ".github", ".wrangler", "node_modules", "wrangler.jsonc"]
