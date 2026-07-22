@@ -1,77 +1,118 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login | DMXHUB</title>
-  <meta name="description" content="Login to DMXHUB" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css" />
-  <style>
-    .page-wrap{max-width:900px;margin:0 auto;padding:92px 20px 40px}
-    .glass{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:20px;margin-bottom:16px;backdrop-filter:blur(12px)}
-    .glass h1{font-size:2rem;font-weight:900;margin-bottom:10px}
-    .glass h2{font-size:1.2rem;font-weight:800;margin:18px 0 10px}
-    .glass p{color:rgba(255,255,255,0.72);line-height:1.7;font-size:0.92rem;margin-bottom:10px}
-    .glass a{color:#1cb7ff}
-    label{display:block;font-size:0.8rem;color:rgba(255,255,255,0.6);margin:12px 0 6px;font-weight:600}
-    input, textarea, select{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 14px;color:#fff;outline:none;font-family:inherit;font-size:0.9rem}
-    input:focus, textarea:focus, select:focus{border-color:rgba(28,183,255,0.4);background:rgba(255,255,255,0.1)}
-    .btn-send{margin-top:16px;width:100%;background:linear-gradient(91deg,#1cb7ff,#2ff58b);color:#000;border:none;padding:12px;border-radius:999px;font-weight:800;cursor:pointer;transition:.15s}
-    .btn-send:hover{transform:translateY(-1px)}
-    @media(max-width:768px){.page-wrap{padding:80px 14px 30px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | DramaXHub</title>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<style>
+body{background:#0f1115;color:#fff;font-family:Inter,system-ui;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}
+.card{background:#171a21;border:1px solid #2a2d36;border-radius:16px;padding:32px;width:100%;max-width:400px}
+input{width:100%;padding:12px 14px;margin:8px 0;border-radius:8px;border:1px solid #333;background:#0f1115;color:#fff;box-sizing:border-box}
+.btn{width:100%;padding:12px;border-radius:10px;border:0;font-weight:700;cursor:pointer;margin-top:10px}
+.btn-primary{background:linear-gradient(90deg,#2af,#6cf);color:#000}
+.btn-google{background:#fff;color:#000;display:flex;align-items:center;justify-content:center;gap:8px}
+.or{text-align:center;margin:16px 0;color:#777;font-size:14px}
+h1{margin:0 0 8px 0;font-size:24px}
+.sub{color:#888;font-size:14px;margin-bottom:20px}
+a{color:#6cf;text-decoration:none}
+#status{margin-top:12px;font-size:13px;color:#8f8}
+</style>
 </head>
 <body>
-<header class="mbx-header" id="mainHeader">
-  <div class="mbx-header-inner">
-    <a href="./index.html" class="mbx-logo">
-      <span class="mbx-logo-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="url(#g)"/><path d="M9 8.5L19.5 14L9 19.5V8.5Z" fill="black"/><defs><linearGradient id="g" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#1cb7ff"/><stop offset="1" stop-color="#2ff58b"/></linearGradient></defs></svg></span>
-      <span class="mbx-logo-text"><span class="logo-dmx">DMX</span><span class="logo-hub">HUB</span></span>
-      <span class="logo-dotcom">.COM</span>
-    </a>
-    <nav class="mbx-nav">
-      <a href="./index.html" class="nav-link">Home</a>
-      <a href="./about.html" class="nav-link">About</a>
-      <a href="./contact.html" class="nav-link">Contact</a>
-      <a href="./privacy.html" class="nav-link">Privacy</a>
-    </nav>
-    <div class="mbx-actions">
-      <a href="./index.html" class="btn-premium"><span class="premium-dot"></span> Browse</a>
-      <button class="mbx-hamburger" id="hamburgerBtn" type="button"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-  <div class="mbx-drawer" id="mobileDrawer">
-    <div class="drawer-inner">
-      <a href="./index.html">🏠 Home</a>
-      <a href="./about.html">ℹ️ About</a>
-      <a href="./contact.html">✉️ Contact</a>
-      <a href="./privacy.html">🔒 Privacy</a>
-      <a href="./login.html">👤 Login</a>
-    </div>
-  </div>
-</header>
+<div class="card">
+<h1>Welcome back</h1>
+<p class="sub">All movies are free. Login unlocks history & smart recommendations.</p>
 
-<div class="page-wrap" style="max-width:420px">
-  <div class="glass" style="text-align:center">
-    <div style="width:56px;height:56px;margin:0 auto 14px;border-radius:14px;background:linear-gradient(91deg,#1cb7ff,#2ff58b);display:flex;align-items:center;justify-content:center;font-size:26px">▶</div>
-    <h1 style="font-size:1.6rem">Welcome back</h1>
-    <p style="color:rgba(255,255,255,0.5)">Login to DMXHUB • MovieBox style</p>
-    <form onsubmit="event.preventDefault(); alert('Demo login - connect to your auth backend'); location.href='./index.html';" style="text-align:left;margin-top:18px">
-      <label>Email</label><input type="email" placeholder="you@example.com" required />
-      <label>Password</label><input type="password" placeholder="••••••••" required />
-      <button class="btn-send" type="submit">Login</button>
-      <div style="text-align:center;margin-top:14px;font-size:0.82rem;color:rgba(255,255,255,0.5)">Don't have account? <a href="#" style="color:#1cb7ff">Sign up</a> • <a href="./index.html" style="color:rgba(255,255,255,0.6)">Browse as guest</a></div>
-    </form>
-  </div>
+<input id="email" type="email" placeholder="you@example.com" autocomplete="email">
+<input id="password" type="password" placeholder="Password" autocomplete="current-password">
+<button class="btn btn-primary" onclick="doLogin()">Sign in</button>
+
+<div class="or">or</div>
+
+<!-- GOOGLE BUTTON -->
+<div id="g_id_onload"
+     data-client_id="249047944037-4kvhicki95p2fou38e8o6loebamc96c1.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-callback="handleGoogle"
+     data-auto_prompt="false">
+</div>
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="pill"
+     data-theme="filled_black"
+     data-text="continue_with"
+     data-size="large"
+     data-logo_alignment="left"
+     style="width:100%">
+</div>
+<button class="btn btn-google" onclick="document.querySelector('.g_id_signin div[role=button]')?.click()" style="display:none" id="fallbackGoogle">
+  <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" width="18"> Continue with Google
+</button>
+
+<p id="status"></p>
+<p style="font-size:13px;margin-top:16px;text-align:center">New to DramaXHub? <a href="/signup.html">Create free account</a></p>
+<p style="font-size:12px;text-align:center;margin-top:8px"><a href="/">← Back to home</a></p>
 </div>
 
 <script>
-const hb=document.getElementById('hamburgerBtn');const dr=document.getElementById('mobileDrawer');let o=false;
-function td(){o=!o;dr.classList.toggle('open',o);hb.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';}
-function cd(){o=false;dr.classList.remove('open');hb.classList.remove('open');document.body.style.overflow='';}
-if(hb)hb.addEventListener('click',td);if(dr)dr.addEventListener('click',e=>{if(e.target===dr)cd();});
-window.addEventListener('scroll',()=>{const h=document.getElementById('mainHeader'); if(window.scrollY>10) h.classList.add('scrolled'); else h.classList.remove('scrolled');});
+const API = '';
+
+async function doLogin(){
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  if(!email || !password) return setStatus('Enter email and password', true);
+  setStatus('Signing in...');
+  try{
+    const r = await fetch(API + '/api/auth/login', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({email, password}),
+      credentials:'include'
+    });
+    const data = await r.json();
+    if(!r.ok) throw new Error(data.error || 'Login failed');
+    setStatus('Success! Redirecting...');
+    location.href = '/';
+  }catch(e){
+    setStatus(e.message, true);
+  }
+}
+
+async function handleGoogle(response){
+  setStatus('Verifying with Google...');
+  try{
+    const r = await fetch(API + '/api/auth/google', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ credential: response.credential }),
+      credentials:'include'
+    });
+    const data = await r.json();
+    if(!r.ok) throw new Error(data.error || 'Google login failed');
+    setStatus('Google login successful! Redirecting...');
+    // Small delay so cookie sets
+    setTimeout(()=> location.href = '/', 500);
+  }catch(e){
+    console.error(e);
+    setStatus('Google login failed: ' + e.message, true);
+    alert('Google login failed: ' + e.message);
+  }
+}
+
+function setStatus(msg, isError=false){
+  const el = document.getElementById('status');
+  el.style.color = isError ? '#ff6b6b' : '#8fffa0';
+  el.textContent = msg;
+}
+
+// check if already logged in
+fetch('/api/auth/me', {credentials:'include'}).then(r=>r.json()).then(d=>{
+  if(d.user){
+    document.body.innerHTML = '<div class="card"><h1>Already logged in</h1><p class="sub">Hi '+ (d.user.name||d.user.email) +'</p><p><a href="/">Go to home</a> | <a href="#" onclick="fetch(\'/api/auth/logout\',{method:\'POST\',credentials:\'include\'}).then(()=>location.reload())">Logout</a></p></div>';
+  }
+});
 </script>
 </body>
 </html>
