@@ -1,15 +1,15 @@
 name = "dmxhub"
+main = "worker.js"
 compatibility_date = "2024-01-01"
+
+[vars]
+GOOGLE_CLIENT_ID = "249047944037-4kvhicki95p2fou38e8o6loebamc96c1.apps.googleusercontent.com"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "dmxhub-db"
-database_id = "REPLACE_WITH_YOUR_D1_ID"
+database_id = "a4d18838-8bcd-4e49-898b-3a2ca85dc446"
 
-[[kv_namespaces]]
-binding = "SESSIONS"
-id = "REPLACE_WITH_KV_ID"
-
-[vars]
-# Set in Cloudflare dashboard > Pages > Settings > Environment Variables
-# GOOGLE_CLIENT_ID = "YOUR_CLIENT_ID.apps.googleusercontent.com"
+[assets]
+directory = "."
+not_found_handling = "single-page-application"
