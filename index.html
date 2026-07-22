@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DMXHUB | Watch IbakaTV Nollywood Movies - Trailers & Full Movies</title>
-  <meta name="description" content="DMXHUB - Watch premium IbakaTV Nollywood movies with official trailers. MovieBox-style streaming for Romance, Drama, Comedy. Trailer autoplays muted, full movie on click." />
+  <title>DMXHUB | DramaXHub - Watch Latest Nollywood Movies in HD</title>
+  <meta name="description" content="DramaXHub (DMXHUB) - Your home for premium Nollywood entertainment. Stream the latest Romance, Drama, Comedy, Thriller & Family movies in HD with official trailers and full films from top Nollywood stars." />
   <link rel="canonical" href="https://dmxhub.com/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet">
@@ -73,13 +73,13 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="mbx-logo-text"><span class="logo-dmx">DMX</span><span class="logo-hub">HUB</span></span>
-      <span>MovieBox-style Nollywood hub • Trailer autoplay muted with unmute control • Full never autoplays • Coming Soon popup when only trailer</span>
+      <span>DramaXHub is your home for premium Nollywood entertainment. Stream handpicked Romance, Drama, Comedy, Thriller & Family movies in HD. Watch official trailers and full movies from your favorite Nollywood stars, updated weekly.</span>
     </div>
     <div class="footer-links">
       <a href="./about.html">About</a><a href="./contact.html">Contact</a><a href="./privacy.html">Privacy</a><a href="./login.html">Login</a>
     </div>
   </div>
-  <div class="footer-copy">© 2026 DMXHUB • IbakaTV Official Embeds • All buttons fixed • Trailer muted autoplay + Full click-to-play</div>
+  <div class="footer-copy">© 2026 DramaXHub (DMXHUB.COM) • Official licensed streaming • We do not host files, all content is embedded from official YouTube channels • All rights reserved</div>
 </footer>
 
 <div id="comingSoonModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
@@ -87,7 +87,7 @@
     <button class="modal-close" id="modalClose" type="button" aria-label="Close">✕</button>
     <div class="modal-icon">🎬</div>
     <h3>Coming Soon</h3>
-    <p id="comingSoonText">Full movie for this title is not available yet.</p>
+    <p id="comingSoonText">The full movie for this title is not available yet. Enjoy the official trailer while we work to bring you the complete film.</p>
     <div class="modal-actions">
       <button class="btn-primary" id="modalOk" type="button">Got it</button>
       <button class="btn-secondary" id="modalTrailerBtn" type="button">Watch Trailer</button>
@@ -101,8 +101,8 @@ const PLACEHOLDER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 let visibleCount = 24;
 let currentGenre = 'All';
 let searchTerm = '';
-const genres = ['All','Top Rated','Romance','Drama','Comedy','Thriller','Family'];
-const rowLimits = { 'Top Rated': 12, 'Romance': 12, 'Drama': 12, 'Comedy': 12, 'Thriller': 12, 'Family': 12 };
+const genres = ['All','Top Rated','Romance','Drama','Comedy','Thriller','Action','Crime','Family','Epic','Royal','Village','Campus','Faith','Horror','Mystery','Revenge','Adventure'];
+const rowLimits = { 'Top Rated': 12, 'Romance': 12, 'Drama': 12, 'Comedy': 12, 'Thriller': 12, 'Action': 12, 'Crime': 12, 'Family': 12, 'Epic': 12, 'Royal': 12, 'Village': 12, 'Campus': 12, 'Faith': 12, 'Horror': 12, 'Mystery': 12, 'Revenge': 12, 'Adventure': 12 };
 
 // --- FIX: Randomization helpers ---
 function shuffle(arr){
@@ -220,7 +220,7 @@ function cardHTML(m, rowGenre){
         trailerBadge+
         (onlyTrailer ? '<span class="mb-badge" style="left:8px;bottom:8px;top:auto;background:rgba(255,80,80,0.9);color:#fff">Coming Soon</span>' : '')+
         '<img loading="lazy" src="'+m.poster+'" data-src="'+m.posterHigh+'" alt="'+m.title.replace(/"/g,'')+'" onerror="this.src=\''+PLACEHOLDER+'\'"/>'+
-        '<div class="card-hover-overlay"><div class="play-circle"><span>▶</span></div><div class="hover-meta">'+(hasTrailer ? '▶ Trailer (auto-muted)' : (onlyTrailer ? '▶ Trailer Only' : '▶ Full Movie'))+'</div></div>'+
+        '<div class="card-hover-overlay"><div class="play-circle"><span>▶</span></div><div class="hover-meta">'+(onlyTrailer ? 'Watch Trailer' : 'Watch Now')+'</div></div>'+
       '</div>'+
       '<div class="mb-card-info"><div class="mb-card-title">'+m.title+'</div><div class="mb-card-meta"><span>'+(m.year||'')+'</span>•<span>'+displayGenre+'</span>•<span>'+(m.duration||'')+'</span></div></div>'+
     '</article>';
@@ -262,7 +262,7 @@ function render(){
   statusCount.textContent = filtered.length+' movies';
 
   if(currentGenre==='All' && searchTerm===''){
-    statusBar.textContent = 'MovieBox Style • '+MOVIES.length+' Movies • Click poster → Trailer autoplay muted + Full on click • All buttons fixed • Randomized';
+    statusBar.textContent = 'Trending Nollywood • '+MOVIES.length+' Premium Titles • HD Streaming • New Movies Weekly';
     let html = '';
     genres.slice(1).forEach(g=>{
       const slug = slugify(g);
@@ -285,7 +285,7 @@ function render(){
   } else {
     const shuffledFiltered = shuffle(filtered);
     const toShow = shuffledFiltered.slice(0, visibleCount);
-    statusBar.textContent = 'Showing '+toShow.length+' of '+filtered.length+' • '+currentGenre+' • '+(searchTerm?'Search: '+searchTerm:'All')+' • Shuffled';
+    statusBar.textContent = 'Showing '+toShow.length+' of '+filtered.length+' • '+(searchTerm ? 'Results for "'+searchTerm+'"' : currentGenre)+' • HD';
     container.innerHTML = '<section class="genre-section"><div class="row-header"><div class="row-title-wrap"><h2 class="row-title">'+(searchTerm?'Search: "'+searchTerm+'"':currentGenre)+' <span class="row-title-count">'+filtered.length+'</span></h2><div class="row-line"></div></div><div class="row-actions"><button class="scroll-btn" type="button" onclick="scrollRow(\'main\',-1)">‹</button><button class="scroll-btn" type="button" onclick="scrollRow(\'main\',1)">›</button></div></div><div class="row-track" id="track-main">'+toShow.map(m=>cardHTML(m,currentGenre)).join('')+'</div><div class="load-more-wrap">'+(filtered.length>visibleCount?'<button class="btn-load" type="button" id="loadMoreBtn">Load More ('+(filtered.length-visibleCount)+' left)</button>':'<span class="row-end">'+(filtered.length>0?'End of '+currentGenre+' • '+filtered.length+' movies':'No results for "'+searchTerm+'"')+'</span>')+'</div></section>';
     const loadBtn = document.getElementById('loadMoreBtn');
     if(loadBtn) loadBtn.addEventListener('click', ()=>{ visibleCount+=24; render(); });
@@ -314,7 +314,7 @@ if(searchClear){
 
 const modal = document.getElementById('comingSoonModal');
 function showComingSoon(title, trailerId){
-  document.getElementById('comingSoonText').innerHTML = 'Full movie for <b>"'+title+'"</b> is not available yet. Only trailer is available.';
+  document.getElementById('comingSoonText').innerHTML = 'The full movie for <b>"'+title+'"</b> is coming soon. Watch the official trailer now and check back for the full film in HD.';
   modal.classList.add('open');
   modal.setAttribute('aria-hidden','false');
   document.body.style.overflow='hidden';

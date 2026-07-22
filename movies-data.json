@@ -12,13 +12,19 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 7.5,
-    "genre": ["Nollywood", "Drama"],
+    "genre": [
+      "Drama"
+    ],
     "duration": "1h 24m",
     "durationMinutes": 84,
     "durationRaw": "84 min",
     "language": "English",
     "director": "Emem Isong",
-    "cast": ["Lizzy Gold", "Maurice Sam", "Destiny Etiko"],
+    "cast": [
+      "Lizzy Gold",
+      "Maurice Sam",
+      "Destiny Etiko"
+    ],
     "synopsis": "A must-watch emotional Nollywood drama about love, betrayal and family secrets that will keep you glued till the end.",
     "isFeatured": true,
     "verifiedReal": true,
@@ -52,13 +58,19 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 8.7,
-    "genre": ["Romance", "Nollywood"],
+    "genre": [
+      "Romance"
+    ],
     "duration": "1h 38m",
     "durationMinutes": 98,
     "durationRaw": "98 min",
     "language": "English",
     "director": "Emem Isong",
-    "cast": ["Maurice Sam", "Pearl Wats", "Elochukwu Godwin"],
+    "cast": [
+      "Maurice Sam",
+      "Pearl Wats",
+      "Elochukwu Godwin"
+    ],
     "synopsis": "A father proposes a contract marriage to give his special needs son a chance at happiness, but will she accept a life she never planned for?",
     "isFeatured": true,
     "verifiedReal": true,
@@ -92,13 +104,18 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 8.4,
-    "genre": ["Thriller", "Nollywood"],
+    "genre": [
+      "Thriller"
+    ],
     "duration": "1h 52m",
     "durationMinutes": 112,
     "durationRaw": "112 min",
     "language": "English",
     "director": "Emem Isong",
-    "cast": ["Zubby Michael", "Mercy Johnson Okojie"],
+    "cast": [
+      "Zubby Michael",
+      "Mercy Johnson Okojie"
+    ],
     "synopsis": "A shocking true-life inspired story of betrayal, ritual and ambition where a husband trades his wife's womb for wealth.",
     "isFeatured": true,
     "verifiedReal": true,
@@ -132,13 +149,19 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 7.7,
-    "genre": ["Nollywood", "Romance"],
+    "genre": [
+      "Romance",
+      "Revenge"
+    ],
     "duration": "2h 7m",
     "durationMinutes": 127,
     "durationRaw": "127 min",
     "language": "English",
     "director": "Ruth Kadiri",
-    "cast": ["Gabriel Afolayan", "Medinat Jimoh"],
+    "cast": [
+      "Gabriel Afolayan",
+      "Medinat Jimoh"
+    ],
     "synopsis": "A bestselling author and a fintech mogul's perfect marriage shatters after tragic loss, grief and hidden betrayal.",
     "isFeatured": true,
     "verifiedReal": true,
@@ -172,13 +195,18 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 7.4,
-    "genre": ["Nollywood", "Romance"],
+    "genre": [
+      "Romance"
+    ],
     "duration": "1h 24m",
     "durationMinutes": 84,
     "durationRaw": "84 min",
     "language": "English",
     "director": "Ruth Kadiri",
-    "cast": ["Saga Adeolu", "Ifeka Doris"],
+    "cast": [
+      "Saga Adeolu",
+      "Ifeka Doris"
+    ],
     "synopsis": "A mysterious agreement forces two strangers to share just 48 hours but those two days change everything.",
     "isFeatured": true,
     "verifiedReal": true,
@@ -212,13 +240,21 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 8.5,
-    "genre": ["Comedy Drama", "Nollywood"],
+    "genre": [
+      "Comedy Drama",
+      "Epic"
+    ],
     "duration": "1h 18m",
     "durationMinutes": 78,
     "durationRaw": "78 min",
     "language": "English",
     "director": "Lancelot Oduwa Imasuen",
-    "cast": ["Toyin Abraham", "Zubby Michael", "Efe Irele", "Fausat Balogun"],
+    "cast": [
+      "Toyin Abraham",
+      "Zubby Michael",
+      "Efe Irele",
+      "Fausat Balogun"
+    ],
     "synopsis": "A couple tries to save their marriage by cheating with younger lovers, leading to hilarious and chaotic consequences.",
     "isFeatured": true,
     "verifiedReal": true,
@@ -252,13 +288,20 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 7.5,
-    "genre": ["Romance", "Nollywood"],
+    "genre": [
+      "Romance"
+    ],
     "duration": "2h 15m",
     "durationMinutes": 135,
     "durationRaw": "135 min",
     "language": "English",
     "director": "Moses Inwang",
-    "cast": ["Maurice Sam", "Uche Montana", "Chioma Nwaoha", "Chinenye Nnebe"],
+    "cast": [
+      "Maurice Sam",
+      "Uche Montana",
+      "Chioma Nwaoha",
+      "Chinenye Nnebe"
+    ],
     "synopsis": "A dangerous side chick threatens a blossoming love story in this critical tale of love, trust and betrayal.",
     "isFeatured": true,
     "verifiedReal": true,
@@ -289,13 +332,21 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": "PG-13",
-    "genre": ["Drama", "Romance"],
+    "genre": [
+      "Drama",
+      "Romance"
+    ],
     "duration": "2h 3m",
     "durationMinutes": 123,
     "durationRaw": "PT2H3M2S",
     "language": "English",
     "director": "Uche Nancy",
-    "cast": ["Chinenye Nnebe", "Deza the Great", "Sophia Alakija", "Oma Nnadi"],
+    "cast": [
+      "Chinenye Nnebe",
+      "Deza the Great",
+      "Sophia Alakija",
+      "Oma Nnadi"
+    ],
     "synopsis": "Beyond Access explores the complexities of modern relationships through the lens of a demanding career. A couple navigates work-life balance, household chores, and intimacy, revealing underlying tensions. The arrival of a new house help further complicates their dynamic.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -330,13 +381,19 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 7.9,
-    "genre": ["Romance", "Nollywood"],
+    "genre": [
+      "Romance"
+    ],
     "duration": "2h 22m",
     "durationMinutes": 142,
     "durationRaw": "142 min",
     "language": "English",
     "director": "Ruth Kadiri",
-    "cast": ["Maurice Sam", "Uche Montana", "Clinton Joshua"],
+    "cast": [
+      "Maurice Sam",
+      "Uche Montana",
+      "Clinton Joshua"
+    ],
     "synopsis": "Two hearts collide when love, ambition and secrets force difficult choices.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -370,13 +427,19 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 8.0,
-    "genre": ["Nollywood", "Drama"],
+    "genre": [
+      "Drama"
+    ],
     "duration": "1h 24m",
     "durationMinutes": 84,
     "durationRaw": "84 min",
     "language": "English",
     "director": "Omoni Oboli",
-    "cast": ["Maurice Sam", "Uche Montana", "Crystal Okoye"],
+    "cast": [
+      "Maurice Sam",
+      "Uche Montana",
+      "Crystal Okoye"
+    ],
     "synopsis": "Stuck in a toxic relationship, she finds courage to leave when she meets someone who shows her what love should feel like.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -410,13 +473,19 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 7.1,
-    "genre": ["Nollywood", "Romance"],
+    "genre": [
+      "Romance",
+      "Campus"
+    ],
     "duration": "1h 58m",
     "durationMinutes": 118,
     "durationRaw": "118 min",
     "language": "English",
     "director": "Lancelot Oduwa Imasuen",
-    "cast": ["Maurice Sam", "Uche Montana"],
+    "cast": [
+      "Maurice Sam",
+      "Uche Montana"
+    ],
     "synopsis": "A wild night leads to unexpected love between two strangers from different worlds.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -450,13 +519,19 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 8.6,
-    "genre": ["Nollywood", "Romance"],
+    "genre": [
+      "Romance",
+      "Crime"
+    ],
     "duration": "1h 18m",
     "durationMinutes": 78,
     "durationRaw": "78 min",
     "language": "English",
     "director": "Omoni Oboli",
-    "cast": ["Maurice Sam", "Sonia Uche"],
+    "cast": [
+      "Maurice Sam",
+      "Sonia Uche"
+    ],
     "synopsis": "When everyone doubts her, one man believes in her dreams and love blossoms against all odds.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -490,13 +565,18 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 7.7,
-    "genre": ["Nollywood", "Royal Drama"],
+    "genre": [
+      "Royal Drama"
+    ],
     "duration": "1h 58m",
     "durationMinutes": 118,
     "durationRaw": "118 min",
     "language": "English, Igbo",
     "director": "Moses Inwang",
-    "cast": ["Destiny Etiko", "Zubby Michael"],
+    "cast": [
+      "Destiny Etiko",
+      "Zubby Michael"
+    ],
     "synopsis": "A humble orphan finds love with a village boy who is secretly a billionaire prince searching for a true wife.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -530,13 +610,18 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 8.6,
-    "genre": ["Drama", "Nollywood"],
+    "genre": [
+      "Drama"
+    ],
     "duration": "1h 58m",
     "durationMinutes": 118,
     "durationRaw": "118 min",
     "language": "English",
     "director": "Moses Inwang",
-    "cast": ["Destiny Etiko", "Mike Godson"],
+    "cast": [
+      "Destiny Etiko",
+      "Mike Godson"
+    ],
     "synopsis": "Every lady needs to watch this emotional story of sacrifice, love and resilience.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -570,13 +655,21 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 8.6,
-    "genre": ["Nollywood", "Drama"],
+    "genre": [
+      "Drama",
+      "Epic"
+    ],
     "duration": "2h 7m",
     "durationMinutes": 127,
     "durationRaw": "127 min",
     "language": "English",
     "director": "Moses Inwang",
-    "cast": ["Uche Montana", "Bimbo Ademoye", "Chioma Nwaoha", "Onyii Alex"],
+    "cast": [
+      "Uche Montana",
+      "Bimbo Ademoye",
+      "Chioma Nwaoha",
+      "Onyii Alex"
+    ],
     "synopsis": "Four glamorous Lagos women chase luxury, love and fame, but hidden secrets threaten to destroy their friendship.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -610,13 +703,19 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 8.6,
-    "genre": ["Romantic Comedy", "Nollywood"],
+    "genre": [
+      "Romantic Comedy"
+    ],
     "duration": "1h 41m",
     "durationMinutes": 101,
     "durationRaw": "101 min",
     "language": "English",
     "director": "Emem Isong",
-    "cast": ["Bimbo Ademoye", "Timini Egbuson", "Oluebube Obio"],
+    "cast": [
+      "Bimbo Ademoye",
+      "Timini Egbuson",
+      "Oluebube Obio"
+    ],
     "synopsis": "A young woman navigating online dating finds unexpected romance in this hilarious and heartwarming comedy.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -650,13 +749,18 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 7.9,
-    "genre": ["Nollywood", "Romance"],
+    "genre": [
+      "Romance"
+    ],
     "duration": "2h 2m",
     "durationMinutes": 122,
     "durationRaw": "122 min",
     "language": "English",
     "director": "Ruth Kadiri",
-    "cast": ["Bimbo Ademoye", "Timini Egbuson"],
+    "cast": [
+      "Bimbo Ademoye",
+      "Timini Egbuson"
+    ],
     "synopsis": "Two strangers escape troubled lives through nightly drives, but secrets surface and freedom turns into love.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -690,13 +794,20 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 8.5,
-    "genre": ["Nollywood", "Drama"],
+    "genre": [
+      "Drama",
+      "Crime"
+    ],
     "duration": "1h 32m",
     "durationMinutes": 92,
     "durationRaw": "92 min",
     "language": "English",
     "director": "Lancelot Oduwa Imasuen",
-    "cast": ["Ruth Kadiri", "Michael Dappa", "Deza The Great"],
+    "cast": [
+      "Ruth Kadiri",
+      "Michael Dappa",
+      "Deza The Great"
+    ],
     "synopsis": "Heartbreak, family struggles and unexpected romance collide when life falls apart and love becomes the only hope.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -730,13 +841,19 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 7.0,
-    "genre": ["Drama", "Nollywood"],
+    "genre": [
+      "Drama"
+    ],
     "duration": "2h 15m",
     "durationMinutes": 135,
     "durationRaw": "135 min",
     "language": "English",
     "director": "Emem Isong",
-    "cast": ["Ruth Kadiri", "Uzor Arukwe", "Bamike Olawunmi"],
+    "cast": [
+      "Ruth Kadiri",
+      "Uzor Arukwe",
+      "Bamike Olawunmi"
+    ],
     "synopsis": "A charming man risks everything for forbidden love with married women until scandal threatens to destroy all.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -770,13 +887,19 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 7.1,
-    "genre": ["Nollywood", "Romance Thriller"],
+    "genre": [
+      "Romance Thriller"
+    ],
     "duration": "1h 58m",
     "durationMinutes": 118,
     "durationRaw": "118 min",
     "language": "English",
     "director": "Uche Nancy",
-    "cast": ["Ruth Kadiri", "Eso Dike", "Shaznay Okawa"],
+    "cast": [
+      "Ruth Kadiri",
+      "Eso Dike",
+      "Shaznay Okawa"
+    ],
     "synopsis": "A man torn between two obsessive women discovers jealousy and betrayal can turn love into a dangerous game.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -810,13 +933,20 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 8.3,
-    "genre": ["Romance", "Nollywood"],
+    "genre": [
+      "Romance",
+      "Faith"
+    ],
     "duration": "2h 15m",
     "durationMinutes": 135,
     "durationRaw": "135 min",
     "language": "English",
     "director": "Lancelot Oduwa Imasuen",
-    "cast": ["Maurice Sam", "Ruth Kadiri", "Chioma Nwaoha"],
+    "cast": [
+      "Maurice Sam",
+      "Ruth Kadiri",
+      "Chioma Nwaoha"
+    ],
     "synopsis": "Love moves in unexpectedly and turns three lives upside down in this emotional Nollywood hit.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -850,13 +980,18 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 8.8,
-    "genre": ["Romance", "Nollywood"],
+    "genre": [
+      "Romance"
+    ],
     "duration": "2h 22m",
     "durationMinutes": 142,
     "durationRaw": "142 min",
     "language": "English",
     "director": "Emem Isong",
-    "cast": ["Timini Egbuson", "Bimbo Ademoye"],
+    "cast": [
+      "Timini Egbuson",
+      "Bimbo Ademoye"
+    ],
     "synopsis": "A poor waitress meets a charming rich man but her fairytale shatters when she discovers he is already married.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -890,13 +1025,19 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 7.6,
-    "genre": ["Epic", "Nollywood"],
+    "genre": [
+      "Epic"
+    ],
     "duration": "2h 2m",
     "durationMinutes": 122,
     "durationRaw": "122 min",
     "language": "English, Igbo",
     "director": "Omoni Oboli",
-    "cast": ["Yul Edochie", "Lizzy Gold Onuwaje", "Emmanuel Okhakhu"],
+    "cast": [
+      "Yul Edochie",
+      "Lizzy Gold Onuwaje",
+      "Emmanuel Okhakhu"
+    ],
     "synopsis": "Ichie's spirit remains trapped as his cult demands a son's loyalty. Chekwube must fight darkness to reclaim his father's soul.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -927,13 +1068,22 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": "PG-13",
-    "genre": ["Thriller", "Drama", "Mystery", "Romance"],
+    "genre": [
+      "Thriller",
+      "Drama",
+      "Mystery",
+      "Romance"
+    ],
     "duration": "1h 42m",
     "durationMinutes": 102,
     "durationRaw": "PT1H42M",
     "language": "English",
     "director": "Maurice Sam",
-    "cast": ["Maurice Sam", "Sophie Alakija", "Emem Udonquak"],
+    "cast": [
+      "Maurice Sam",
+      "Sophie Alakija",
+      "Emem Udonquak"
+    ],
     "synopsis": "THE STRANGE WOMAN is a gripping story filled with mystery, love, betrayal, shocking secrets, and unexpected twists that will keep you watching until the very end.",
     "isFeatured": true,
     "verifiedReal": true,
@@ -968,13 +1118,19 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 7.2,
-    "genre": ["Nollywood", "Drama"],
+    "genre": [
+      "Drama"
+    ],
     "duration": "1h 52m",
     "durationMinutes": 112,
     "durationRaw": "112 min",
     "language": "English",
     "director": "Omoni Oboli",
-    "cast": ["Bimbo Ademoye", "Kunle Remi", "Melvin Oduah"],
+    "cast": [
+      "Bimbo Ademoye",
+      "Kunle Remi",
+      "Melvin Oduah"
+    ],
     "synopsis": "A self-made woman who gets everything she wants tastes rejection for the first time when Sylvester comes along.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1008,13 +1164,18 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 7.1,
-    "genre": ["Nollywood", "Royal Drama"],
+    "genre": [
+      "Royal Drama"
+    ],
     "duration": "1h 18m",
     "durationMinutes": 78,
     "durationRaw": "78 min",
     "language": "English, Igbo",
     "director": "Emem Isong",
-    "cast": ["Yul Edochie", "Lizzy Gold"],
+    "cast": [
+      "Yul Edochie",
+      "Lizzy Gold"
+    ],
     "synopsis": "A throne built on lies crumbles when hidden enemies rise within the palace.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1048,13 +1209,19 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 8.7,
-    "genre": ["Ritual Thriller", "Nollywood"],
+    "genre": [
+      "Ritual Thriller",
+      "Epic"
+    ],
     "duration": "2h 2m",
     "durationMinutes": 122,
     "durationRaw": "122 min",
     "language": "English",
     "director": "Omoni Oboli",
-    "cast": ["Yul Edochie", "Lizzy Gold Onuwaje"],
+    "cast": [
+      "Yul Edochie",
+      "Lizzy Gold Onuwaje"
+    ],
     "synopsis": "A father's burial is held hostage by a cult that demands one son join them, forcing a battle between light and darkness.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1088,13 +1255,20 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 8.3,
-    "genre": ["Comedy", "Nollywood"],
+    "genre": [
+      "Comedy",
+      "Crime"
+    ],
     "duration": "1h 41m",
     "durationMinutes": 101,
     "durationRaw": "101 min",
     "language": "English",
     "director": "Moses Inwang",
-    "cast": ["Maurice Sam", "Ekene Umenwa", "Sonia Uche"],
+    "cast": [
+      "Maurice Sam",
+      "Ekene Umenwa",
+      "Sonia Uche"
+    ],
     "synopsis": "Manhood is tested in hilarious and crazy ways when love and ego clash.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1128,13 +1302,18 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 8.5,
-    "genre": ["Nollywood", "Romance"],
+    "genre": [
+      "Romance"
+    ],
     "duration": "1h 58m",
     "durationMinutes": 118,
     "durationRaw": "118 min",
     "language": "English",
     "director": "Emem Isong",
-    "cast": ["Maurice Sam", "Sonia Uche"],
+    "cast": [
+      "Maurice Sam",
+      "Sonia Uche"
+    ],
     "synopsis": "A billionaire falls for a street girl, but society and secrets threaten their unlikely love.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1168,13 +1347,18 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 7.5,
-    "genre": ["Nollywood", "Romantic Comedy"],
+    "genre": [
+      "Romantic Comedy"
+    ],
     "duration": "1h 41m",
     "durationMinutes": 101,
     "durationRaw": "101 min",
     "language": "English",
     "director": "Ruth Kadiri",
-    "cast": ["Maurice Sam", "Sonia Uche"],
+    "cast": [
+      "Maurice Sam",
+      "Sonia Uche"
+    ],
     "synopsis": "A strict boss and his employee find love in the most chaotic office romance.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1208,13 +1392,19 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 8.3,
-    "genre": ["Drama", "Nollywood"],
+    "genre": [
+      "Drama"
+    ],
     "duration": "2h 22m",
     "durationMinutes": 142,
     "durationRaw": "142 min",
     "language": "English",
     "director": "Emem Isong",
-    "cast": ["Maurice Sam", "Sonia Uche", "Kheira Hewatch"],
+    "cast": [
+      "Maurice Sam",
+      "Sonia Uche",
+      "Kheira Hewatch"
+    ],
     "synopsis": "Love, pain and redemption in a world quick to condemn. A story that teaches not to judge.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1248,13 +1438,21 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 8.7,
-    "genre": ["Nollywood", "Comedy"],
+    "genre": [
+      "Comedy",
+      "Action"
+    ],
     "duration": "1h 58m",
     "durationMinutes": 118,
     "durationRaw": "118 min",
     "language": "English",
     "director": "Uche Nancy",
-    "cast": ["Uzor Arukwe", "Iyabo Ojo", "Gideon Okeke", "Enyinna Nwigwe"],
+    "cast": [
+      "Uzor Arukwe",
+      "Iyabo Ojo",
+      "Gideon Okeke",
+      "Enyinna Nwigwe"
+    ],
     "synopsis": "A rib-cracking comedy about drama, romance and madness when ambition meets opportunity.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1288,13 +1486,19 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 7.8,
-    "genre": ["Nollywood", "Comedy Drama"],
+    "genre": [
+      "Comedy Drama"
+    ],
     "duration": "2h 22m",
     "durationMinutes": 142,
     "durationRaw": "142 min",
     "language": "English",
     "director": "Ruth Kadiri",
-    "cast": ["Kunle Remi", "Teniola Aladese", "Gabriel Afolayan"],
+    "cast": [
+      "Kunle Remi",
+      "Teniola Aladese",
+      "Gabriel Afolayan"
+    ],
     "synopsis": "A couple is forced to walk in each other's shoes, learning empathy through hilarious chaos.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1328,13 +1532,20 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 7.6,
-    "genre": ["Royal Comedy Drama", "Nollywood"],
+    "genre": [
+      "Royal Comedy Drama",
+      "Horror"
+    ],
     "duration": "1h 58m",
     "durationMinutes": 118,
     "durationRaw": "118 min",
     "language": "English, Igbo",
     "director": "Uche Nancy",
-    "cast": ["Destiny Etiko", "Ekene Umenwa Ogbodo", "Jude Ogbodo"],
+    "cast": [
+      "Destiny Etiko",
+      "Ekene Umenwa Ogbodo",
+      "Jude Ogbodo"
+    ],
     "synopsis": "After her mother's death, a princess falls into silence until a spirited nurse brings laughter and healing to the palace.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1368,13 +1579,18 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 7.7,
-    "genre": ["Nollywood", "Romantic Comedy"],
+    "genre": [
+      "Romantic Comedy"
+    ],
     "duration": "1h 32m",
     "durationMinutes": 92,
     "durationRaw": "92 min",
     "language": "English",
     "director": "Ruth Kadiri",
-    "cast": ["Chioma Nwaoha", "Maurice Sam"],
+    "cast": [
+      "Chioma Nwaoha",
+      "Maurice Sam"
+    ],
     "synopsis": "A Gen Z wife's modern lifestyle clashes with traditional marriage expectations in this laugh-out-loud comedy.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1408,13 +1624,19 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 7.7,
-    "genre": ["Romance", "Nollywood"],
+    "genre": [
+      "Romance"
+    ],
     "duration": "1h 18m",
     "durationMinutes": 78,
     "durationRaw": "78 min",
     "language": "English",
     "director": "Emem Isong",
-    "cast": ["Maurice Sam", "Chioma Nwaoha", "Sonia Uche"],
+    "cast": [
+      "Maurice Sam",
+      "Chioma Nwaoha",
+      "Sonia Uche"
+    ],
     "synopsis": "Caught between two lovers, she must choose between passion and stability.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1448,13 +1670,19 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 8.5,
-    "genre": ["Comedy Drama", "Nollywood"],
+    "genre": [
+      "Comedy Drama",
+      "Faith"
+    ],
     "duration": "2h 7m",
     "durationMinutes": 127,
     "durationRaw": "127 min",
     "language": "English",
     "director": "Uche Nancy",
-    "cast": ["Ekene Umenwa", "Onny Michael"],
+    "cast": [
+      "Ekene Umenwa",
+      "Onny Michael"
+    ],
     "synopsis": "Trouble follows this chaotic couple everywhere, but love keeps them together.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1488,13 +1716,19 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 6.9,
-    "genre": ["Drama", "Nollywood"],
+    "genre": [
+      "Drama",
+      "Royal"
+    ],
     "duration": "2h 7m",
     "durationMinutes": 127,
     "durationRaw": "127 min",
     "language": "English",
     "director": "Emem Isong",
-    "cast": ["Regina Daniels", "Eso Dike"],
+    "cast": [
+      "Regina Daniels",
+      "Eso Dike"
+    ],
     "synopsis": "A ghetto love story about affection, betrayal and survival in the trenches.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1528,13 +1762,19 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 8.4,
-    "genre": ["Nollywood", "Family Drama"],
+    "genre": [
+      "Family Drama",
+      "Horror"
+    ],
     "duration": "2h 15m",
     "durationMinutes": 135,
     "durationRaw": "135 min",
     "language": "English",
     "director": "Omoni Oboli",
-    "cast": ["Regina Daniels", "Mike Ezuruonye"],
+    "cast": [
+      "Regina Daniels",
+      "Mike Ezuruonye"
+    ],
     "synopsis": "A tomboy sister challenges family traditions and finds love where she least expects.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1568,13 +1808,19 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 7.5,
-    "genre": ["Nollywood", "Epic"],
+    "genre": [
+      "Epic"
+    ],
     "duration": "1h 18m",
     "durationMinutes": 78,
     "durationRaw": "78 min",
     "language": "English, Igbo",
     "director": "Emem Isong",
-    "cast": ["Faith Duke", "Chibuike Darlington", "Malik Milton"],
+    "cast": [
+      "Faith Duke",
+      "Chibuike Darlington",
+      "Malik Milton"
+    ],
     "synopsis": "An epic tale of destiny, love and spiritual battles in an ancient kingdom.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1608,13 +1854,18 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 8.3,
-    "genre": ["Nollywood", "Romance"],
+    "genre": [
+      "Romance"
+    ],
     "duration": "2h 22m",
     "durationMinutes": 142,
     "durationRaw": "142 min",
     "language": "English",
     "director": "Uche Nancy",
-    "cast": ["Chinenye Nnebe", "Maurice Sam"],
+    "cast": [
+      "Chinenye Nnebe",
+      "Maurice Sam"
+    ],
     "synopsis": "She asked her friend to find her true love before she dies, but friendship turns to exploitation.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1648,13 +1899,18 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 7.8,
-    "genre": ["Romance", "Nollywood"],
+    "genre": [
+      "Romance"
+    ],
     "duration": "1h 38m",
     "durationMinutes": 98,
     "durationRaw": "98 min",
     "language": "English",
     "director": "Uche Nancy",
-    "cast": ["Chinenye Nnebe", "Clinton Joshua"],
+    "cast": [
+      "Chinenye Nnebe",
+      "Clinton Joshua"
+    ],
     "synopsis": "A young woman searches for the perfect boy, but love comes from the most unexpected place.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1688,13 +1944,19 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 7.0,
-    "genre": ["Nollywood", "Drama"],
+    "genre": [
+      "Drama"
+    ],
     "duration": "1h 41m",
     "durationMinutes": 101,
     "durationRaw": "101 min",
     "language": "English",
     "director": "Lancelot Oduwa Imasuen",
-    "cast": ["Chinenye Nnebe", "Peter Komba", "Nana Addae"],
+    "cast": [
+      "Chinenye Nnebe",
+      "Peter Komba",
+      "Nana Addae"
+    ],
     "synopsis": "A man rents a wife to impress his family, but the fake marriage starts to feel too real.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1728,13 +1990,18 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 8.4,
-    "genre": ["Romantic Drama", "Nollywood"],
+    "genre": [
+      "Romantic Drama"
+    ],
     "duration": "1h 32m",
     "durationMinutes": 92,
     "durationRaw": "92 min",
     "language": "English",
     "director": "Emem Isong",
-    "cast": ["Deza The Great", "Chinenye Nnebe"],
+    "cast": [
+      "Deza The Great",
+      "Chinenye Nnebe"
+    ],
     "synopsis": "An estranged couple in divorce proceedings rediscover love when sparks fly during out-of-court settlement.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1768,13 +2035,18 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 7.7,
-    "genre": ["Romance", "Nollywood"],
+    "genre": [
+      "Romance"
+    ],
     "duration": "2h 2m",
     "durationMinutes": 122,
     "durationRaw": "122 min",
     "language": "English",
     "director": "Uche Nancy",
-    "cast": ["Frederick Leonard", "Chinenye Nnebe"],
+    "cast": [
+      "Frederick Leonard",
+      "Chinenye Nnebe"
+    ],
     "synopsis": "Two homeless lovers find hope and love despite the odds stacked against them.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1808,13 +2080,19 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 7.6,
-    "genre": ["Courtroom Drama", "Nollywood"],
+    "genre": [
+      "Courtroom Drama"
+    ],
     "duration": "1h 38m",
     "durationMinutes": 98,
     "durationRaw": "98 min",
     "language": "English",
     "director": "Ruth Kadiri",
-    "cast": ["Clinton Joshua", "Pamela Okoye", "Chioma Edak"],
+    "cast": [
+      "Clinton Joshua",
+      "Pamela Okoye",
+      "Chioma Edak"
+    ],
     "synopsis": "Trust itself is on trial when love, betrayal and suspense keep you guessing until the very end.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1848,13 +2126,19 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 6.9,
-    "genre": ["Nollywood", "Romance"],
+    "genre": [
+      "Romance"
+    ],
     "duration": "1h 24m",
     "durationMinutes": 84,
     "durationRaw": "84 min",
     "language": "English",
     "director": "Omoni Oboli",
-    "cast": ["Clinton Joshua", "Omeche Oko", "Sandra Osei-Nti"],
+    "cast": [
+      "Clinton Joshua",
+      "Omeche Oko",
+      "Sandra Osei-Nti"
+    ],
     "synopsis": "An accidental encounter leads to a love story that neither of them planned for.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1888,13 +2172,18 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 6.9,
-    "genre": ["Romance", "Nollywood"],
+    "genre": [
+      "Romance"
+    ],
     "duration": "1h 18m",
     "durationMinutes": 78,
     "durationRaw": "78 min",
     "language": "English",
     "director": "Moses Inwang",
-    "cast": ["Clinton Joshua", "Sophia Chisom"],
+    "cast": [
+      "Clinton Joshua",
+      "Sophia Chisom"
+    ],
     "synopsis": "A heartfelt and emotional journey about what love truly means to two different souls.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1928,13 +2217,18 @@
     "year": 2026,
     "marketingYear": 2026,
     "rating": 7.4,
-    "genre": ["Romance", "Nollywood"],
+    "genre": [
+      "Romance"
+    ],
     "duration": "2h 15m",
     "durationMinutes": 135,
     "durationRaw": "135 min",
     "language": "English",
     "director": "Omoni Oboli",
-    "cast": ["Chioma Nwaoha", "Clinton Joshua"],
+    "cast": [
+      "Chioma Nwaoha",
+      "Clinton Joshua"
+    ],
     "synopsis": "She falls for the family's breadwinner, but love is tested by family pressure and poverty.",
     "isFeatured": false,
     "verifiedReal": true,
@@ -1968,13 +2262,19 @@
     "year": 2025,
     "marketingYear": 2025,
     "rating": 8.8,
-    "genre": ["Nollywood", "Romance"],
+    "genre": [
+      "Romance",
+      "Adventure"
+    ],
     "duration": "1h 58m",
     "durationMinutes": 118,
     "durationRaw": "118 min",
     "language": "English",
     "director": "Emem Isong",
-    "cast": ["Clinton Joshua", "Chioma Nwaoha"],
+    "cast": [
+      "Clinton Joshua",
+      "Chioma Nwaoha"
+    ],
     "synopsis": "Deeply in love, a couple must overcome class, family and past mistakes to stay together.",
     "isFeatured": false,
     "verifiedReal": true,

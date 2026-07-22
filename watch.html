@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Watch | DMXHUB</title>
+<title>Watch | DramaXHub - DMXHUB</title>
+<meta name="description" content="Watch Nollywood movies on DramaXHub (DMXHUB) - Official trailers, full movies, reviews and ratings in HD."/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles.css"/>
 <style>
-/* Watch page specific */
 .watch-page { background: #0a0b0e; min-height: 100vh; }
 .watch-grid{max-width:1400px;margin:0 auto;padding:92px 20px 40px;display:grid;grid-template-columns:1fr 360px;gap:20px}
 @media(max-width:1024px){.watch-grid{grid-template-columns:1fr; padding:88px 14px 30px}}
@@ -15,56 +15,65 @@
 .pane iframe, .pane #trailerPlayerDiv, .pane #fullPlayerDiv{width:100%;height:100%;border:0;display:block}
 .pane img{width:100%;height:100%;object-fit:contain;background:#000;display:block}
 .full-poster-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.75) 100%), var(--poster-bg);background-size:cover;background-position:center;cursor:pointer;z-index:3;transition:.2s}
-.full-poster-overlay:hover{background:radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.65) 100%), var(--poster-bg);background-size:cover;background-position:center}
 .play-big{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#1cb7ff,#2ff58b);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(28,183,255,0.4), 0 0 0 8px rgba(255,255,255,0.08);transition:.2s;cursor:pointer;border:none;color:#000;font-size:30px;padding-left:4px}
-.play-big:hover{transform:scale(1.06);box-shadow:0 12px 40px rgba(28,183,255,0.5), 0 0 0 10px rgba(255,255,255,0.12)}
+.play-big:hover{transform:scale(1.06)}
 .play-label{margin-top:14px;background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.12);padding:8px 16px;border-radius:999px;font-weight:700;font-size:0.85rem;backdrop-filter:blur(8px)}
-/* Mute control - ALWAYS visible on small screens */
-.mute-control{position:absolute;left:14px;bottom:14px;z-index:10;display:flex;align-items:center;gap:10px;background:rgba(0,0,0,0.78);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.14);border-radius:999px;padding:6px 6px 6px 6px;box-shadow:0 4px 20px rgba(0,0,0,0.4);transition:.2s}
-.mute-btn{width:44px;height:44px;min-width:44px;border-radius:50%;background:#fff;color:#000;border:none;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;transition:.15s;font-weight:800}
-.mute-btn:hover{background:#f0f0f0;transform:scale(1.03)}
-.mute-btn:active{transform:scale(0.97)}
+.mute-control{position:absolute;left:14px;bottom:14px;z-index:10;display:flex;align-items:center;gap:10px;background:rgba(0,0,0,0.78);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.14);border-radius:999px;padding:6px 6px 6px 6px;box-shadow:0 4px 20px rgba(0,0,0,0.4)}
+.mute-btn{width:44px;height:44px;min-width:44px;border-radius:50%;background:#fff;color:#000;border:none;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer}
 .mute-info{display:flex;flex-direction:column;padding-right:10px;max-width:160px}
-.mute-info strong{font-size:0.82rem;font-weight:800;line-height:1.1}
-.mute-info span{font-size:0.68rem;color:rgba(255,255,255,0.55);line-height:1.2}
-@media(max-width:600px){
-  .mute-control{left:10px;right:10px;bottom:10px;width:auto;justify-content:flex-start;padding:8px}
-  .mute-btn{width:48px;height:48px;min-width:48px;font-size:20px}
-  .mute-info{max-width:none}
-}
-.trailer-badge-live{position:absolute;top:14px;left:14px;z-index:9;background:linear-gradient(91deg,#ff3b3b,#ff8a00);color:#fff;padding:5px 10px;border-radius:999px;font-size:0.7rem;font-weight:800;letter-spacing:0.04em;display:flex;align-items:center;gap:6px;box-shadow:0 4px 12px rgba(255,59,59,0.35)}
+.mute-info strong{font-size:0.82rem;font-weight:800}
+.mute-info span{font-size:0.68rem;color:rgba(255,255,255,0.55)}
+.trailer-badge-live{position:absolute;top:14px;left:14px;z-index:9;background:linear-gradient(91deg,#ff3b3b,#ff8a00);color:#fff;padding:5px 10px;border-radius:999px;font-size:0.7rem;font-weight:800;display:flex;align-items:center;gap:6px}
 .trailer-badge-live .dot{width:7px;height:7px;background:#fff;border-radius:50%;animation:pulse 1.2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.9)}}
-
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
 .tabs{display:flex;gap:8px;margin:16px 0 12px;flex-wrap:wrap}
 .tab{padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);color:#fff;cursor:pointer;font-weight:700;font-size:0.85rem;transition:.15s;display:flex;align-items:center;gap:6px}
-.tab.active{background:#fff;color:#000;border-color:#fff;box-shadow:0 2px 12px rgba(255,255,255,0.15)}
+.tab.active{background:#fff;color:#000;border-color:#fff}
 .tab:disabled{opacity:0.35;cursor:not-allowed}
 .tab:hover:not(:disabled):not(.active){border-color:rgba(255,255,255,0.22);background:rgba(255,255,255,0.1)}
 .meta-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:16px;position:sticky;top:92px}
 @media(max-width:1024px){.meta-card{position:relative;top:0}}
 .meta-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.84rem;gap:12px}
-.meta-row span:first-child{color:rgba(255,255,255,0.45);flex-shrink:0}
-.meta-row span:last-child{text-align:right;word-break:break-word}
-.back-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:#fff;padding:9px 16px;border-radius:999px;cursor:pointer;font-weight:600;margin-bottom:14px;display:inline-flex;align-items:center;gap:6px;transition:.15s}
-.back-btn:hover{background:rgba(255,255,255,0.13)}
+.meta-row span:first-child{color:rgba(255,255,255,0.45)}
+.meta-row span:last-child{text-align:right}
+.back-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:#fff;padding:9px 16px;border-radius:999px;cursor:pointer;font-weight:600;margin-bottom:14px;display:inline-flex;align-items:center;gap:6px}
 .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 @media(max-width:600px){.related-grid{grid-template-columns:1fr}}
 .related-card{display:flex;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.05);padding:8px;border-radius:12px;cursor:pointer;transition:.15s}
-.related-card:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.1);transform:translateY(-1px)}
+.related-card:hover{background:rgba(255,255,255,0.08)}
 .related-card img{width:60px;height:90px;object-fit:cover;border-radius:8px;background:#111;flex-shrink:0}
-.notice{background:linear-gradient(135deg, rgba(28,183,255,0.08), rgba(47,245,139,0.06));border:1px solid rgba(28,183,255,0.15);border-radius:12px;padding:12px 14px;font-size:0.8rem;color:rgba(255,255,255,0.7);margin-top:14px;line-height:1.6}
+.notice{background:linear-gradient(135deg, rgba(28,183,255,0.08), rgba(47,245,139,0.06));border:1px solid rgba(28,183,255,0.15);border-radius:12px;padding:14px 16px;font-size:0.82rem;color:rgba(255,255,255,0.7);margin-top:14px;line-height:1.6}
+
+/* Reviews Styles */
+.reviews-pane{padding:18px;background:#0f1115;border-radius:14px;border:1px solid rgba(255,255,255,0.06);max-height:520px;overflow-y:auto}
+.review-summary{display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:16px;flex-wrap:wrap}
+.avg-rating{font-size:2.2rem;font-weight:900}
+.stars{color:#ffd24d;letter-spacing:2px}
+.review-form{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px;margin-bottom:18px}
+.star-input{display:flex;gap:6px;margin:8px 0}
+.star-input button{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);color:#fff;cursor:pointer;font-size:18px;transition:.15s}
+.star-input button.active{background:#ffd24d;color:#000;border-color:#ffd24d}
+.star-input button:hover{transform:scale(1.1)}
+.review-input{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:10px 12px;color:#fff;outline:none;font-family:inherit;margin-top:8px;resize:vertical}
+.review-input:focus{border-color:rgba(28,183,255,0.35)}
+.btn-submit{margin-top:10px;background:linear-gradient(91deg,#1cb7ff,#2ff58b);color:#000;border:none;padding:10px 18px;border-radius:999px;font-weight:800;cursor:pointer;transition:.15s;width:100%}
+.btn-submit:hover{transform:translateY(-1px)}
+.btn-submit:disabled{opacity:0.4;cursor:not-allowed}
+.review-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:12px;margin-bottom:10px}
+.review-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.review-author{font-weight:700;font-size:0.85rem}
+.review-date{font-size:0.7rem;color:rgba(255,255,255,0.4)}
+.review-stars{color:#ffd24d;font-size:0.85rem;margin-bottom:4px}
+.review-text{font-size:0.85rem;color:rgba(255,255,255,0.75);line-height:1.5}
+.empty-reviews{text-align:center;padding:30px 10px;color:rgba(255,255,255,0.4)}
 </style>
 </head>
 <body class="watch-page">
 <header class="mbx-header" id="mainHeader">
   <div class="mbx-header-inner">
     <a href="./index.html" class="mbx-logo" aria-label="DMXHUB Home">
-      <span class="mbx-logo-icon">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="url(#g2)"/><path d="M9 8.5L19.5 14L9 19.5V8.5Z" fill="black"/><defs><linearGradient id="g2" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#1cb7ff"/><stop offset="1" stop-color="#2ff58b"/></linearGradient></defs></svg>
-      </span>
-      <span class="mbx-logo-text"><span class="logo-dmx">DMX</span><span class="logo-hub">HUB</span></span>
-      <span class="logo-dotcom">.COM</span>
+      <span class="mbx-logo-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="url(#g2)"/><path d="M9 8.5L19.5 14L9 19.5V8.5Z" fill="black"/><defs><linearGradient id="g2" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#1cb7ff"/><stop offset="1" stop-color="#2ff58b"/></linearGradient></defs></svg></span>
+      <span class="mbx-logo-text"><span class="logo-dmx">DMX</span><span class="logo-hub">HUB</span></span><span class="logo-dotcom">.COM</span>
     </a>
     <nav class="mbx-nav">
       <a href="./index.html" class="nav-link">Home</a>
@@ -72,33 +81,24 @@
       <a href="./contact.html" class="nav-link">Contact</a>
     </nav>
     <div class="mbx-actions">
-      <a href="./index.html" class="btn-premium"><span class="premium-dot"></span> Browse</a>
+      <a href="./index.html" class="btn-premium"><span class="premium-dot"></span> Browse Movies</a>
       <button class="mbx-hamburger" id="hamburgerBtn" type="button"><span></span><span></span><span></span></button>
     </div>
   </div>
   <div class="mbx-drawer" id="mobileDrawer">
-    <div class="drawer-inner">
-      <a href="./index.html">🏠 Home</a>
-      <a href="./about.html">ℹ️ About</a>
-      <a href="./contact.html">✉️ Contact</a>
-      <a href="./privacy.html">🔒 Privacy</a>
-    </div>
+    <div class="drawer-inner"><a href="./index.html">🏠 Home</a><a href="./about.html">ℹ️ About</a><a href="./contact.html">✉️ Contact</a><a href="./privacy.html">🔒 Privacy</a><a href="./login.html">👤 Login</a></div>
   </div>
 </header>
 
-<div class="watch-grid" id="watchGrid"><div style="padding:20px">Loading player...</div></div>
+<div class="watch-grid" id="watchGrid"><div style="padding:20px;color:rgba(255,255,255,0.6)">Loading player...</div></div>
 
-<!-- Coming Soon Modal -->
 <div id="comingSoonModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
   <div class="modal-box">
     <button class="modal-close" id="modalClose" type="button">✕</button>
     <div class="modal-icon">🎬</div>
     <h3>Coming Soon</h3>
-    <p id="comingSoonText">Full movie not available yet.</p>
-    <div class="modal-actions">
-      <button class="btn-primary" id="modalOk" type="button">Got it</button>
-      <button class="btn-secondary" id="modalTrailerBtn" type="button">Watch Trailer Instead</button>
-    </div>
+    <p id="comingSoonText">The full movie for this title is coming soon.</p>
+    <div class="modal-actions"><button class="btn-primary" id="modalOk" type="button">Browse More</button><button class="btn-secondary" id="modalTrailerBtn" type="button">Watch Trailer</button></div>
   </div>
 </div>
 
@@ -108,417 +108,165 @@
 const PLACEHOLDER="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='450'%3E%3Crect width='100%25' height='100%25' fill='%23121214'/%3E%3C/svg%3E";
 const params=new URLSearchParams(location.search);
 const id=parseInt(params.get('id'))||1;
-const playParam=params.get('play')||'trailer'; // Default to trailer now per requirement
+const playParam=params.get('play')||'trailer';
 let movie=MOVIES.find(m=>m.id===id)||MOVIES[0];
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a;}
+document.title=`${movie.title} (${movie.year}) | Watch on DramaXHub - DMXHUB`;
+function getCastNames(m){if(!m.cast) return ''; if(Array.isArray(m.cast) && typeof m.cast[0]==='string') return m.cast.join(', '); return m.cast.map(c=> typeof c==='string'?c:(c.name||'')).join(', ');}
+const fullId=movie.youtubeId||null; const trailerId=movie.trailerId||null;
+const hasTrailerDistinct=!!(trailerId && trailerId!==fullId); const hasFull=!!fullId; const hasOnlyTrailer=!hasFull && !!trailerId; const hasOnlyFull=hasFull && !hasTrailerDistinct;
+let activeTab=playParam; if(activeTab==='trailer' && !trailerId && !hasTrailerDistinct && hasOnlyFull) activeTab='full'; if(!['full','trailer','reviews'].includes(activeTab)) activeTab='trailer'; if(activeTab==='full' && hasOnlyTrailer) activeTab='trailer';
+let trailerPlayer=null, fullPlayer=null, isTrailerMuted=true, trailerReady=false, fullStarted=false, selectedRating=0;
+let currentProgressInterval=null;
 
-function shuffle(arr){
-  const a = [...arr];
-  for(let i=a.length-1;i>0;i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-document.title=`${movie.title} (${movie.year}) - Watch Trailer & Full Movie | DMXHUB`;
+function youtubeEmbedFallback(videoId, opts={}){if(!videoId) return ''; const base=`https://www.youtube-nocookie.com/embed/${videoId}`; const p=new URLSearchParams({rel:'0',modestbranding:'1',iv_load_policy:'3',playsinline:'1',enablejsapi:'1',controls:'1',origin:location.origin,...(opts.autoplay?{autoplay:'1',mute:opts.mute?'1':'0'}:{})}); return `${base}?${p.toString()}`;}
 
-function getCastNames(m){
-  if(!m.cast) return '';
-  if(Array.isArray(m.cast) && typeof m.cast[0]==='string') return m.cast.join(', ');
-  if(Array.isArray(m.cast)) return m.cast.map(c=> typeof c==='string'?c:(c.name||'')).join(', ');
-  return '';
-}
+function getUser(){try{return JSON.parse(localStorage.getItem('dmxhub_user')||'null');}catch{return null}}
+function getReviews(){try{const k=`dmxhub_reviews_${movie.id}`; return JSON.parse(localStorage.getItem(k)||'[]');}catch{return []}}
+function saveReviews(list){localStorage.setItem(`dmxhub_reviews_${movie.id}`, JSON.stringify(list));}
+function saveProgress(movieId, seconds){const user=getUser(); if(!user){localStorage.setItem(`dmxhub_progress_${movieId}`, String(seconds)); return;} try{let hist=JSON.parse(localStorage.getItem('dmxhub_progress_all')||'{}'); hist[movieId]={seconds, updated:Date.now()}; localStorage.setItem('dmxhub_progress_all', JSON.stringify(hist));}catch{} /* Future: POST /api/progress */}
+function getProgress(movieId){try{const v=localStorage.getItem(`dmxhub_progress_${movieId}`); if(v) return parseFloat(v); const all=JSON.parse(localStorage.getItem('dmxhub_progress_all')||'{}'); return all[movieId]?.seconds||0;}catch{return 0}}
 
-// Core ids
-const fullId = movie.youtubeId || null;
-const trailerId = movie.trailerId || null;
-const hasTrailerDistinct = !!(trailerId && trailerId !== fullId);
-const hasFull = !!fullId;
-const hasOnlyTrailer = !hasFull && !!trailerId;
-const hasOnlyFull = hasFull && !hasTrailerDistinct;
-
-// Active tab logic: poster click => trailer muted autoplay. Full never autoplay.
-let activeTab = playParam;
-if(activeTab==='trailer' && !trailerId && !hasTrailerDistinct && hasOnlyFull){
-  // No trailer exists, fallback to showing full poster with play button (no autoplay)
-  activeTab='full';
-}
-if(!['full','trailer','poster'].includes(activeTab)) activeTab='trailer';
-if(activeTab==='full' && hasOnlyTrailer) activeTab='trailer'; // if only trailer, stay on trailer
-
-let trailerPlayer = null;
-let fullPlayer = null;
-let isTrailerMuted = true;
-let trailerReady = false;
-let fullStarted = false;
-
-function youtubeEmbedFallback(videoId, opts={}){
-  if(!videoId) return '';
-  const base = `https://www.youtube-nocookie.com/embed/${videoId}`;
-  const p = new URLSearchParams({
-    rel: '0', modestbranding:'1', iv_load_policy:'3', playsinline:'1', enablejsapi:'1', controls:'1',
-    origin: location.origin,
-    ...(opts.autoplay ? {autoplay:'1', mute: opts.mute ? '1':'0'} : {})
-  });
-  return `${base}?${p.toString()}`;
-}
+function renderStars(rating){let s=''; for(let i=1;i<=5;i++) s+= i<=Math.round(rating) ? '★' : '☆'; return s;}
 
 function renderWatch(){
   const grid=document.getElementById('watchGrid');
-  const trailerAvailable = hasTrailerDistinct || (trailerId && !hasFull);
-  const effectiveTrailerId = hasTrailerDistinct ? trailerId : (hasOnlyTrailer ? trailerId : null);
+  const trailerAvailable=hasTrailerDistinct || (trailerId && !hasFull);
+  const effectiveTrailerId=hasTrailerDistinct ? trailerId : (hasOnlyTrailer ? trailerId : null);
+  const reviews=getReviews(); const avg = reviews.length ? (reviews.reduce((a,b)=>a+(b.rating||0),0)/reviews.filter(r=>r.rating).length||0) : movie.rating||0; const user=getUser();
 
   grid.innerHTML=`
     <div>
-      <button class="back-btn" type="button" onclick="location.href='./index.html'">← Back to Home</button>
+      <button class="back-btn" type="button" onclick="location.href='./index.html'">← Back to Browse</button>
       <div class="player-wrap" id="playerWrap">
-        <!-- TRAILER PANE -->
         <div id="pane-trailer" class="pane" style="display:${activeTab==='trailer'?'block':'none'}">
-          ${trailerAvailable ? `
-            <div id="trailerPlayerDiv"></div>
-            <div class="trailer-badge-live"><span class="dot"></span> TRAILER • AUTO MUTED</div>
-            <div class="mute-control" id="muteControl">
-              <button class="mute-btn" id="muteBtn" type="button" aria-label="Unmute trailer">
-                <span id="muteIcon">🔇</span>
-              </button>
-              <div class="mute-info">
-                <strong id="muteText">Muted</strong>
-                <span id="muteHint">Tap to unmute trailer</span>
-              </div>
-            </div>
-          ` : `
-            <div style="display:flex;align-items:center;justify-content:center;height:100%;flex-direction:column;gap:12px;color:rgba(255,255,255,0.6);padding:20px;text-align:center">
-              <div style="font-size:3rem">🎞️</div>
-              <div style="font-weight:700;color:#fff">No separate trailer available</div>
-              <div style="font-size:0.85rem">This title has only full movie. Click Play to watch.</div>
-              <button class="tab active" type="button" onclick="switchTab('full')" style="margin-top:8px">▶ Watch Full Movie</button>
-            </div>
-          `}
+          ${trailerAvailable ? `<div id="trailerPlayerDiv"></div><div class="trailer-badge-live"><span class="dot"></span> OFFICIAL TRAILER</div><div class="mute-control" id="muteControl"><button class="mute-btn" id="muteBtn" type="button"><span id="muteIcon">🔇</span></button><div class="mute-info"><strong id="muteText">Sound Off</strong><span id="muteHint">Tap to enable sound</span></div></div>` : `<div style="display:flex;align-items:center;justify-content:center;height:100%;flex-direction:column;gap:12px;color:rgba(255,255,255,0.6);padding:20px;text-align:center"><div style="font-size:3rem">🎞️</div><div style="font-weight:700;color:#fff">Trailer Not Available</div><div style="font-size:0.85rem">Full movie available only</div><button class="tab active" type="button" onclick="switchTab('full')" style="margin-top:8px">▶ Watch Full Movie</button></div>`}
         </div>
-
-        <!-- FULL PANE - NEVER AUTOPLAY -->
         <div id="pane-full" class="pane" style="display:${activeTab==='full'?'block':'none'}">
-          ${hasFull ? `
-            <div id="fullPosterOverlay" class="full-poster-overlay" style="--poster-bg: url('${movie.posterHigh||movie.poster}')">
-              <button class="play-big" id="playFullBtn" type="button" aria-label="Play full movie">▶</button>
-              <div class="play-label">▶ Click to Play Full Movie • ${movie.duration||''} • HD</div>
-            </div>
-            <div id="fullPlayerDiv" style="display:none"></div>
-          ` : `
-            <div style="display:flex;align-items:center;justify-content:center;height:100%;flex-direction:column;gap:14px;color:rgba(255,255,255,0.6);padding:24px;text-align:center;background:#000">
-              <div style="font-size:3rem">⏳</div>
-              <div style="font-weight:800;color:#fff;font-size:1.15rem">Full Movie Coming Soon</div>
-              <div style="font-size:0.85rem;max-width:360px;line-height:1.5">We only have the trailer for <b>${movie.title}</b> right now. The full movie will be added soon. Watch the trailer while you wait.</div>
-              <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;justify-content:center">
-                <button class="tab active" type="button" onclick="switchTab('trailer')">▶ Watch Trailer</button>
-                <button class="tab" type="button" onclick="location.href='./index.html'">← Browse Movies</button>
-              </div>
-            </div>
-          `}
+          ${hasFull ? `<div id="fullPosterOverlay" class="full-poster-overlay" style="--poster-bg: url('${movie.posterHigh||movie.poster}')"><button class="play-big" id="playFullBtn" type="button">▶</button><div class="play-label">▶ Click to Play Full Movie • ${movie.duration||''} • HD • Resume enabled</div></div><div id="fullPlayerDiv" style="display:none"></div>` : `<div style="display:flex;align-items:center;justify-content:center;height:100%;flex-direction:column;gap:14px;color:rgba(255,255,255,0.6);padding:24px;text-align:center;background:#000"><div style="font-size:3rem">⏳</div><div style="font-weight:700;color:#fff">Full Movie Coming Soon</div><div style="font-size:0.85rem;max-width:320px">Watch trailer while we bring full film in HD</div><div style="display:flex;gap:8px;margin-top:8px"><button class="tab active" type="button" onclick="switchTab('trailer')">🎞️ Trailer</button><button class="tab" type="button" onclick="switchTab('reviews')">⭐ Reviews</button></div></div>`}
         </div>
-
-        <!-- POSTER PANE -->
-        <div id="pane-poster" class="pane" style="display:${activeTab==='poster'?'block':'none'}">
-          <img src="${movie.posterHigh||movie.poster}" alt="${movie.title.replace(/"/g,'')} poster" onerror="this.src='${movie.poster}'; this.onerror=function(){this.src='${PLACEHOLDER}'}"/>
-        </div>
+        <div id="pane-reviews" class="pane" style="display:${activeTab==='reviews'?'block':'none'};background:#0a0b0e;overflow-y:auto;padding:0"><div class="reviews-pane" id="reviewsPane"></div></div>
       </div>
 
       <div class="tabs" role="tablist">
-        <button class="tab ${activeTab==='full'?'active':''}" data-tab="full" type="button" onclick="handleFullClick()" id="fullTabBtn">
-          🎬 Full Movie ${hasFull?`<span style="font-size:10px;opacity:.6">${fullId}</span>`:'• Coming Soon'}
-        </button>
-        <button class="tab ${activeTab==='trailer'?'active':''}" data-tab="trailer" type="button" onclick="switchTab('trailer')" ${trailerAvailable?'':'disabled'} id="trailerTabBtn">
-          🎞️ Trailer ${trailerAvailable?`<span style="font-size:10px;opacity:.6">${effectiveTrailerId}</span>`:'• Not Available'}
-        </button>
-        <button class="tab ${activeTab==='poster'?'active':''}" data-tab="poster" type="button" onclick="switchTab('poster')">🖼️ Poster</button>
+        <button class="tab ${activeTab==='full'?'active':''}" data-tab="full" type="button" onclick="handleFullClick()">🎬 Full Movie</button>
+        <button class="tab ${activeTab==='trailer'?'active':''}" data-tab="trailer" type="button" onclick="switchTab('trailer')" ${trailerAvailable?'':'disabled'}>🎞️ Trailer</button>
+        <button class="tab ${activeTab==='reviews'?'active':''}" data-tab="reviews" type="button" onclick="switchTab('reviews')">⭐ Reviews (${reviews.length})</button>
       </div>
 
-      <div class="notice">
-        <div style="display:flex;gap:8px;align-items:flex-start">
-          <span style="font-size:1.1rem">✅</span>
-          <div>
-            <b>Fixed Player Logic:</b><br>
-            • <b>Trailer</b> ${trailerAvailable?`autoplays <b>muted</b> (<code>${effectiveTrailerId}</code>) with visible mute/unmute button on all screens`:`not available for this title`}<br>
-            • <b>Full Movie</b> ${hasFull?`requires <b>click to play</b> - <b>never autoplays</b> even if trailer missing (<code>${fullId}</code>)`:`<b>Coming Soon</b> - click shows popup`}<br>
-            • <b>Mute button</b> is always visible on mobile (bottom bar, 48px tap target)
-          </div>
-        </div>
-      </div>
+      <div class="notice"><div style="display:flex;gap:10px"><span>ℹ️</span><div><b style="color:#fff">Watch Freely on DramaXHub</b> — All movies are free, no login required. Log in to unlock Continue Watching, Watch History, and personalized recommendations based on what you actually watch.</div></div></div>
 
       <div id="titleArea">
-        <h1 style="font-size:1.9rem;font-weight:900;line-height:1.15;margin:18px 0 10px">${movie.title} <span style="font-weight:400;color:rgba(255,255,255,0.45)">(${movie.year||''})</span></h1>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:0.88rem;color:rgba(255,255,255,0.6)">
-          <span style="background:#ffd24d;color:#000;padding:3px 8px;border-radius:6px;font-weight:800">★ ${movie.rating||''}</span>
-          <span>${movie.year||''}</span>•<span>${movie.duration||''}</span>•<span>${(movie.genre||[]).join(', ')}</span>•<span>${movie.views||''} views</span>
-        </div>
-        <p style="margin:16px 0;color:rgba(255,255,255,0.78);line-height:1.75;font-size:0.96rem">${movie.synopsis||'No synopsis available.'}</p>
+        <h1 style="font-size:1.9rem;font-weight:900;margin:18px 0 10px">${movie.title} <span style="font-weight:400;color:rgba(255,255,255,0.45)">(${movie.year||''})</span></h1>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:0.88rem;color:rgba(255,255,255,0.6)"><span style="background:#ffd24d;color:#000;padding:3px 8px;border-radius:6px;font-weight:800">★ ${avg.toFixed(1)} (${reviews.length||movie.rating})</span><span>${movie.year||''}</span>•<span>${movie.duration||''}</span>•<span>${(movie.genre||[]).join(', ')}</span>•<span>${movie.views||''}</span></div>
+        <p style="margin:16px 0;color:rgba(255,255,255,0.78);line-height:1.75">${movie.synopsis||'No synopsis.'}</p>
         <div style="display:flex;gap:6px;flex-wrap:wrap">${(movie.genre||[]).map(g=>`<span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);padding:5px 12px;border-radius:999px;font-size:11px;font-weight:600">${g}</span>`).join('')}</div>
-        <div style="margin-top:14px;color:rgba(255,255,255,0.45);font-size:0.82rem">Cast: ${getCastNames(movie)}</div>
+        <div style="margin-top:14px;color:rgba(255,255,255,0.45);font-size:0.82rem"><b style="color:rgba(255,255,255,0.7)">Starring:</b> ${getCastNames(movie)}</div>
       </div>
 
-      <h3 style="margin:26px 0 12px;font-weight:800;font-size:1.1rem">Related Movies</h3>
+      <h3 style="margin:26px 0 12px;font-weight:800;font-size:1.1rem">You May Also Like</h3>
       <div class="related-grid" id="relatedGrid"></div>
     </div>
 
     <div>
       <div class="meta-card">
-        <div style="display:flex;gap:14px">
-          <img src="${movie.poster}" style="width:96px;height:144px;object-fit:cover;border-radius:10px;background:#111" onerror="this.src='${PLACEHOLDER}'"/>
-          <div style="flex:1">
-            <div style="font-weight:800;line-height:1.25">${movie.title}</div>
-            <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:6px">${movie.year} • ${(movie.genre||[]).join('/')} • ${movie.rating}/10</div>
-            <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap">
-              <span style="background:linear-gradient(91deg,#1cb7ff,#2ff58b);color:#000;font-weight:800;padding:5px 10px;border-radius:999px;font-size:11px">${activeTab==='full'?'▶ Full Movie':'🎞️ Trailer'}</span>
-              ${hasOnlyTrailer?'<span style="background:rgba(255,80,80,0.15);border:1px solid rgba(255,80,80,0.2);color:#ff9a9a;padding:4px 8px;border-radius:999px;font-size:10px">Full Coming Soon</span>':''}
-            </div>
-          </div>
-        </div>
+        <div style="display:flex;gap:14px"><img src="${movie.poster}" style="width:96px;height:144px;object-fit:cover;border-radius:10px;background:#111" onerror="this.src='${PLACEHOLDER}'"/><div style="flex:1"><div style="font-weight:800;line-height:1.25">${movie.title}</div><div style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:6px">${movie.year} • ${(movie.genre||[]).join(' / ')} • ★ ${avg.toFixed(1)}</div><div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap"><span style="background:linear-gradient(91deg,#1cb7ff,#2ff58b);color:#000;font-weight:800;padding:5px 10px;border-radius:999px;font-size:11px">${activeTab==='full'?'▶ Full Movie':'🎞️ Trailer'}</span>${hasOnlyTrailer?'<span style="background:rgba(255,80,80,0.15);border:1px solid rgba(255,80,80,0.2);color:#ff9a9a;padding:4px 8px;border-radius:999px;font-size:10px">Coming Soon</span>':''}</div></div></div>
         <div style="margin-top:18px">
-          <div class="meta-row"><span>Rating</span><span>★ ${movie.rating}/10</span></div>
+          <div class="meta-row"><span>Rating</span><span>★ ${avg.toFixed(1)}/5 • ${reviews.length} reviews</span></div>
           <div class="meta-row"><span>Year</span><span>${movie.year}</span></div>
           <div class="meta-row"><span>Duration</span><span>${movie.duration}</span></div>
           <div class="meta-row"><span>Genre</span><span>${(movie.genre||[]).join(', ')}</span></div>
-          <div class="meta-row"><span>Full ID</span><span style="font-size:10px;color:${hasFull?'#2ff58b':'#ff6b6b'};word-break:break-all">${hasFull?fullId+' ✅ click-to-play':'None - Coming Soon'}</span></div>
-          <div class="meta-row"><span>Trailer ID</span><span style="font-size:10px;word-break:break-all;color:${trailerAvailable?'#1cb7ff':'rgba(255,255,255,0.4)'}">${trailerAvailable?effectiveTrailerId+' ✅ muted autoplay':'None'}</span></div>
+          <div class="meta-row"><span>Director</span><span>${movie.director||'N/A'}</span></div>
+          <div class="meta-row"><span>Language</span><span>${movie.language||'English'}</span></div>
+          <div class="meta-row"><span>Progress</span><span id="progressText">${getProgress(movie.id) ? Math.floor(getProgress(movie.id)/60)+'m watched • Resume' : 'Not started'}</span></div>
         </div>
+        <div style="margin-top:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:12px"><div style="font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.6);text-transform:uppercase;margin-bottom:6px">Benefits of Login</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.55);line-height:1.5">✓ Continue where you left off<br>✓ Watch history & personalized picks<br>✓ Verified reviews & watchlist</div><a href="./login.html" style="display:inline-block;margin-top:10px;background:#fff;color:#000;padding:6px 12px;border-radius:999px;font-weight:800;font-size:0.8rem">Login / Sign Up</a></div>
       </div>
     </div>
   `;
 
-  // Related - FIX: shuffle so movies with 2 genres don't always show same 6, and randomize order
-  const relatedPool = MOVIES.filter(m=>m.id!==movie.id && m.genre && movie.genre && m.genre.some(g=>movie.genre.includes(g)));
-  const related = shuffle(relatedPool).slice(0,6);
-  const rg=document.getElementById('relatedGrid');
-  if(rg){
-    rg.innerHTML=related.map(r=>`<div class="related-card" tabindex="0" role="button" onclick="location.href='./watch.html?id=${r.id}&play=trailer'"><img src="${r.poster}" loading="lazy" onerror="this.src='${PLACEHOLDER}'"/><div><div style="font-size:0.84rem;font-weight:700;line-height:1.3">${r.title}</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.5);margin-top:4px">${r.year} • ★ ${r.rating} • ${r.trailerId?'Trailer ✅':'Full only'}</div></div></div>`).join('');
-  }
+  const relatedPool=MOVIES.filter(m=>m.id!==movie.id && m.genre && movie.genre && m.genre.some(g=>movie.genre.includes(g))); const related=shuffle(relatedPool).slice(0,6);
+  const rg=document.getElementById('relatedGrid'); if(rg){rg.innerHTML=related.map(r=>`<div class="related-card" onclick="location.href='./watch.html?id=${r.id}&play=trailer'"><img src="${r.poster}" loading="lazy"/><div><div style="font-size:0.84rem;font-weight:700;line-height:1.3">${r.title}</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.5);margin-top:4px">${r.year} • ★ ${r.rating} • ${(r.genre||[])[0]||''}</div></div></div>`).join('');}
 
-  // Bind full play button
-  const playFullBtn = document.getElementById('playFullBtn');
-  const fullPosterOverlay = document.getElementById('fullPosterOverlay');
-  if(playFullBtn){
-    playFullBtn.addEventListener('click', playFullMovie);
-  }
-  if(fullPosterOverlay){
-    fullPosterOverlay.addEventListener('click', (e)=>{
-      if(e.target.id==='fullPosterOverlay' || e.target.closest('#playFullBtn')) playFullMovie();
-    });
-  }
+  const playFullBtn=document.getElementById('playFullBtn'); const overlay=document.getElementById('fullPosterOverlay'); if(playFullBtn) playFullBtn.addEventListener('click', playFullMovie); if(overlay) overlay.addEventListener('click', e=>{if(e.target.id==='fullPosterOverlay' || e.target.closest('#playFullBtn')) playFullMovie();});
+  const muteBtn=document.getElementById('muteBtn'); if(muteBtn) muteBtn.addEventListener('click', toggleMute);
+  if(activeTab==='trailer' && trailerAvailable && window.YT && window.YT.Player) initTrailerPlayer();
 
-  // Bind mute button after render
-  const muteBtn = document.getElementById('muteBtn');
-  if(muteBtn) muteBtn.addEventListener('click', toggleMute);
-
-  // Init trailer player if needed
-  if(activeTab==='trailer' && trailerAvailable && window.YT && window.YT.Player){
-    initTrailerPlayer();
-  }
+  renderReviewsPane();
 }
 
-/* Trailer Player with YT API */
-function initTrailerPlayer(){
-  const trailerAvailable = hasTrailerDistinct || hasOnlyTrailer;
-  const effectiveTrailerId = hasTrailerDistinct ? trailerId : (hasOnlyTrailer ? trailerId : null);
-  if(!trailerAvailable || !effectiveTrailerId) return;
-  if(trailerPlayer) return;
-  const container = document.getElementById('trailerPlayerDiv');
-  if(!container) return;
-  try{
-    trailerPlayer = new YT.Player('trailerPlayerDiv', {
-      videoId: effectiveTrailerId,
-      width: '100%',
-      height: '100%',
-      playerVars: {
-        autoplay: 1,
-        mute: 1,
-        controls: 1,
-        playsinline: 1,
-        rel: 0,
-        modestbranding: 1,
-        iv_load_policy: 3,
-        enablejsapi: 1,
-        origin: location.origin
-      },
-      events: {
-        onReady: (e)=>{
-          trailerReady = true;
-          try{ e.target.mute(); e.target.playVideo(); }catch(err){}
-          isTrailerMuted = true;
-          updateMuteUI(true);
-        },
-        onStateChange: (e)=>{
-          // Keep muted state tracked
-        }
-      }
-    });
-  }catch(err){
-    // Fallback to iframe embed muted
-    container.innerHTML = `<iframe src="${youtubeEmbedFallback(effectiveTrailerId,{autoplay:true,mute:true})}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-    updateMuteUI(true);
-  }
+function renderReviewsPane(){
+  const pane=document.getElementById('reviewsPane'); if(!pane) return;
+  const reviews=getReviews(); const user=getUser(); const avg = reviews.length ? (reviews.reduce((a,b)=>a+(b.rating||0),0)/ (reviews.filter(r=>r.rating).length||1)) : 0;
+  pane.innerHTML=`
+    <div class="review-summary"><div><div class="avg-rating">${avg ? avg.toFixed(1) : movie.rating||'0.0'}</div><div class="stars">${renderStars(avg||movie.rating)}</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.5)">${reviews.length} reviews • ${movie.views||''}</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:0.8rem;font-weight:700">Rate this movie</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.4)">Tap a star, comment optional</div></div></div>
+    <div class="review-form">
+      <div style="font-weight:700;font-size:0.9rem">Your Rating <span style="color:#ffd24d">*</span></div>
+      <div class="star-input" id="starInput">${[1,2,3,4,5].map(i=>`<button type="button" data-star="${i}" onclick="setRating(${i})">${i<=selectedRating?'★':'☆'}</button>`).join('')}</div>
+      <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-bottom:6px" id="ratingLabel">${selectedRating? `${selectedRating} star${selectedRating>1?'s':''} - ${['Terrible','Bad','Okay','Good','Amazing'][selectedRating-1]}` : 'Select a rating'}</div>
+      <label style="font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:8px;display:block">Your Review (optional)</label>
+      <textarea id="reviewText" class="review-input" rows="3" placeholder="What did you think about this movie? You can comment without rating too..."></textarea>
+      ${!user? `<input id="reviewName" class="review-input" placeholder="Your name (optional, leave blank for Anonymous)" />` : `<div style="font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:8px">Posting as <b style="color:#fff">${user.name||user.email}</b> ✓</div>`}
+      <button class="btn-submit" id="submitReviewBtn" onclick="submitReview()">Post Review</button>
+      <div style="font-size:0.7rem;color:rgba(255,255,255,0.35);margin-top:8px;text-align:center">Rating and comment are independent - you can do either or both. Login gives you a verified badge.</div>
+    </div>
+    <div id="reviewsList">${reviews.length ? reviews.slice().reverse().map(r=>`<div class="review-item"><div class="review-head"><span class="review-author">${r.name||'Anonymous'} ${r.verified?'✓':''}</span><span class="review-date">${new Date(r.date).toLocaleDateString()}</span></div>${r.rating?`<div class="review-stars">${renderStars(r.rating)} • ${r.rating}/5</div>`:''}${r.comment?`<div class="review-text">${r.comment.replace(/</g,'&lt;')}</div>`:''}</div>`).join('') : `<div class="empty-reviews"><div style="font-size:2rem">💬</div><div style="font-weight:700;margin-top:8px">Be the first to review</div><div style="font-size:0.8rem;margin-top:4px">Your review helps others discover great Nollywood stories</div></div>`}</div>
+  `;
 }
 
-function updateMuteUI(muted){
-  isTrailerMuted = muted;
-  const icon = document.getElementById('muteIcon');
-  const text = document.getElementById('muteText');
-  const hint = document.getElementById('muteHint');
-  const btn = document.getElementById('muteBtn');
-  if(!icon||!text) return;
-  if(muted){
-    icon.textContent = '🔇';
-    text.textContent = 'Muted';
-    if(hint) hint.textContent = 'Tap to unmute trailer';
-    if(btn) btn.setAttribute('aria-label','Unmute trailer');
-  } else {
-    icon.textContent = '🔊';
-    text.textContent = 'Sound On';
-    if(hint) hint.textContent = 'Tap to mute trailer';
-    if(btn) btn.setAttribute('aria-label','Mute trailer');
-  }
+function setRating(n){selectedRating=n; renderReviewsPane(); const inp=document.getElementById('reviewText'); if(inp) inp.focus();}
+function submitReview(){
+  const textEl=document.getElementById('reviewText'); const nameEl=document.getElementById('reviewName'); const comment=(textEl?.value||'').trim(); const nameRaw=(nameEl?.value||'').trim(); const user=getUser();
+  if(!selectedRating && !comment){alert('Please add a star rating or write a comment'); return;}
+  const reviews=getReviews();
+  const newReview={id:Date.now(), rating:selectedRating||null, comment:comment||'', name:user?.name || nameRaw || 'Anonymous', date:new Date().toISOString(), verified:!!user};
+  reviews.push(newReview); saveReviews(reviews); selectedRating=0; if(textEl) textEl.value=''; alert('Thanks! Your review is live and will sync when you login.');
+  renderWatch(); setTimeout(()=>{document.getElementById('pane-reviews')?.scrollIntoView({behavior:'smooth'});},100);
+  /* Future: fetch('/api/reviews', {method:'POST', body: JSON.stringify({movieId: movie.id, ...newReview})}) */
 }
 
-function toggleMute(){
-  if(!trailerPlayer || !trailerReady){
-    // Try init
-    initTrailerPlayer();
-    return;
-  }
-  try{
-    if(isTrailerMuted || trailerPlayer.isMuted()){
-      trailerPlayer.unMute();
-      trailerPlayer.setVolume(100);
-      updateMuteUI(false);
-    } else {
-      trailerPlayer.mute();
-      updateMuteUI(true);
-    }
-  }catch(err){
-    // Fallback toggle via reload
-    isTrailerMuted = !isTrailerMuted;
-    updateMuteUI(isTrailerMuted);
-  }
-}
-
-/* Full Movie - NEVER autoplay, click to play */
+function initTrailerPlayer(){const trailerAvailable=hasTrailerDistinct || hasOnlyTrailer; const effectiveTrailerId=hasTrailerDistinct ? trailerId : (hasOnlyTrailer ? trailerId : null); if(!trailerAvailable || !effectiveTrailerId) return; if(trailerPlayer) return; const container=document.getElementById('trailerPlayerDiv'); if(!container) return; try{trailerPlayer=new YT.Player('trailerPlayerDiv',{videoId:effectiveTrailerId,width:'100%',height:'100%',playerVars:{autoplay:1,mute:1,controls:1,playsinline:1,rel:0,modestbranding:1,iv_load_policy:3,enablejsapi:1,origin:location.origin},events:{onReady:(e)=>{trailerReady=true; try{e.target.mute(); e.target.playVideo();}catch{} isTrailerMuted=true; updateMuteUI(true);}}});}catch{container.innerHTML=`<iframe src="${youtubeEmbedFallback(effectiveTrailerId,{autoplay:true,mute:true})}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`; updateMuteUI(true);}}
+function updateMuteUI(muted){isTrailerMuted=muted; const icon=document.getElementById('muteIcon'); const text=document.getElementById('muteText'); const hint=document.getElementById('muteHint'); const btn=document.getElementById('muteBtn'); if(!icon||!text) return; if(muted){icon.textContent='🔇'; text.textContent='Sound Off'; if(hint) hint.textContent='Tap to enable sound'; if(btn) btn.setAttribute('aria-label','Enable sound');} else {icon.textContent='🔊'; text.textContent='Sound On'; if(hint) hint.textContent='Tap to mute'; if(btn) btn.setAttribute('aria-label','Mute');}}
+function toggleMute(){if(!trailerPlayer || !trailerReady){initTrailerPlayer(); return;} try{if(isTrailerMuted || trailerPlayer.isMuted()){trailerPlayer.unMute(); trailerPlayer.setVolume(100); updateMuteUI(false);} else {trailerPlayer.mute(); updateMuteUI(true);}}catch{isTrailerMuted=!isTrailerMuted; updateMuteUI(isTrailerMuted);}}
 function playFullMovie(){
-  if(!hasFull){
-    showComingSoon();
-    return;
-  }
-  const overlay = document.getElementById('fullPosterOverlay');
-  const playerDiv = document.getElementById('fullPlayerDiv');
-  if(!playerDiv) return;
-  if(overlay) overlay.style.display='none';
-  playerDiv.style.display='block';
-  fullStarted = true;
-
-  if(fullPlayer) {
-    try{ fullPlayer.playVideo(); }catch(e){}
-    return;
-  }
-  // Pause trailer if playing
-  if(trailerPlayer){
-    try{ trailerPlayer.pauseVideo(); }catch(e){}
-  }
-
+  if(!hasFull){showComingSoon(); return;}
+  const overlay=document.getElementById('fullPosterOverlay'); const playerDiv=document.getElementById('fullPlayerDiv'); if(!playerDiv) return; if(overlay) overlay.style.display='none'; playerDiv.style.display='block'; fullStarted=true;
+  if(fullPlayer){try{fullPlayer.playVideo();}catch{} startProgressTracker(); return;}
+  if(trailerPlayer){try{trailerPlayer.pauseVideo();}catch{}}
+  const resumeSeconds=getProgress(movie.id);
   if(window.YT && window.YT.Player){
     try{
-      fullPlayer = new YT.Player('fullPlayerDiv', {
-        videoId: fullId,
-        playerVars: { autoplay:1, mute:0, controls:1, playsinline:1, rel:0, modestbranding:1, iv_load_policy:3, enablejsapi:1, origin: location.origin },
-        events: {
-          onReady: (e)=>{ try{ e.target.unMute(); e.target.setVolume(100); e.target.playVideo(); }catch(err){} }
-        }
-      });
-    }catch(err){
-      playerDiv.innerHTML = `<iframe src="${youtubeEmbedFallback(fullId,{autoplay:true,mute:false})}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-    }
-  } else {
-    playerDiv.innerHTML = `<iframe src="${youtubeEmbedFallback(fullId,{autoplay:true,mute:false})}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-  }
+      fullPlayer=new YT.Player('fullPlayerDiv',{videoId:fullId,playerVars:{autoplay:1,mute:0,controls:1,playsinline:1,rel:0,modestbranding:1,iv_load_policy:3,enablejsapi:1,origin:location.origin,start:Math.floor(resumeSeconds)},events:{onReady:(e)=>{try{e.target.unMute(); e.target.setVolume(100); if(resumeSeconds>5) e.target.seekTo(resumeSeconds, true); e.target.playVideo(); startProgressTracker();}catch{}} , onStateChange:(e)=>{if(e.data===1) startProgressTracker(); else if(e.data===2) stopProgressTracker();}}});
+    }catch{playerDiv.innerHTML=`<iframe src="${youtubeEmbedFallback(fullId,{autoplay:true,mute:false})}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`; startProgressTracker();}
+  } else {playerDiv.innerHTML=`<iframe src="${youtubeEmbedFallback(fullId,{autoplay:true,mute:false})}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;}
 }
-
-/* Tabs */
+function startProgressTracker(){stopProgressTracker(); currentProgressInterval=setInterval(()=>{try{if(fullPlayer && fullPlayer.getCurrentTime){const t=fullPlayer.getCurrentTime(); saveProgress(movie.id, t); const el=document.getElementById('progressText'); if(el) el.textContent=Math.floor(t/60)+'m watched • Resume'; localStorage.setItem('dmxhub_history_'+movie.id, JSON.stringify({id:movie.id, title:movie.title, poster:movie.poster, lastWatched:Date.now(), progress:t}));}}catch{}}, 5000);}
+function stopProgressTracker(){if(currentProgressInterval) clearInterval(currentProgressInterval); currentProgressInterval=null;}
 function switchTab(tab){
-  if(tab==='full' && !hasFull){
-    showComingSoon();
-    return;
-  }
-  if(tab==='trailer'){
-    const hasT = hasTrailerDistinct || hasOnlyTrailer;
-    if(!hasT){
-      // If no trailer, go to full
-      if(hasFull){ tab='full'; } else { return; }
-    }
-  }
-  activeTab=tab;
-  document.querySelectorAll('.tab').forEach(b=>{ if(!b.disabled) b.classList.toggle('active', b.dataset.tab===tab); });
-  const panes = {full:'pane-full', trailer:'pane-trailer', poster:'pane-poster'};
-  Object.entries(panes).forEach(([key, paneId])=>{
-    const el=document.getElementById(paneId);
-    if(el) el.style.display = (key===tab)?'block':'none';
-  });
-  if(tab==='trailer'){
-    // Pause full if playing
-    if(fullPlayer){ try{ fullPlayer.pauseVideo(); }catch(e){} }
-    if(!trailerPlayer) initTrailerPlayer();
-    else { try{ trailerPlayer.playVideo(); }catch(e){} }
-  }
-  if(tab==='full'){
-    if(trailerPlayer){ try{ trailerPlayer.pauseVideo(); }catch(e){} }
-  }
-  // Update URL without reload
-  const newUrl = `./watch.html?id=${movie.id}&play=${tab}`;
-  history.replaceState(null,'',newUrl);
+  if(tab==='full' && !hasFull){showComingSoon(); return;}
+  activeTab=tab; document.querySelectorAll('.tab').forEach(b=>{if(!b.disabled) b.classList.toggle('active', b.dataset.tab===tab);});
+  const panes={full:'pane-full', trailer:'pane-trailer', reviews:'pane-reviews'}; Object.entries(panes).forEach(([key,paneId])=>{const el=document.getElementById(paneId); if(el) el.style.display=(key===tab)?'block':'none';});
+  if(tab==='trailer'){if(fullPlayer){try{fullPlayer.pauseVideo(); stopProgressTracker();}catch{}} if(!trailerPlayer) initTrailerPlayer(); else try{trailerPlayer.playVideo();}catch{}}
+  if(tab==='full'){if(trailerPlayer){try{trailerPlayer.pauseVideo();}catch{}}}
+  if(tab==='reviews'){if(fullPlayer){try{fullPlayer.pauseVideo(); stopProgressTracker();}catch{}} if(trailerPlayer){try{trailerPlayer.pauseVideo();}catch{}} renderReviewsPane();}
+  history.replaceState(null,'',`./watch.html?id=${movie.id}&play=${tab}`);
 }
-
-function handleFullClick(){
-  if(!hasFull){
-    showComingSoon();
-    return;
-  }
-  switchTab('full');
-}
-
-window.switchTab = switchTab;
-window.handleFullClick = handleFullClick;
-window.playFullMovie = playFullMovie;
-window.toggleMute = toggleMute;
-
-/* Coming Soon Modal */
-const modal = document.getElementById('comingSoonModal');
-function showComingSoon(){
-  document.getElementById('comingSoonText').innerHTML = `Full movie for <b>"${movie.title}"</b> is not available yet. Only trailer is available right now. We are working to add the full movie soon. Watch the trailer while you wait!`;
-  modal.classList.add('open');
-  modal.setAttribute('aria-hidden','false');
-  document.body.style.overflow='hidden';
-}
-function closeComingSoon(){
-  modal.classList.remove('open');
-  modal.setAttribute('aria-hidden','true');
-  document.body.style.overflow='';
-}
-window.showComingSoon = showComingSoon;
-window.closeComingSoon = closeComingSoon;
+function handleFullClick(){if(!hasFull){showComingSoon(); return;} switchTab('full');}
+window.switchTab=switchTab; window.handleFullClick=handleFullClick; window.playFullMovie=playFullMovie; window.toggleMute=toggleMute; window.setRating=setRating; window.submitReview=submitReview;
+const modal=document.getElementById('comingSoonModal');
+function showComingSoon(){document.getElementById('comingSoonText').innerHTML=`The full movie for <b>"${movie.title}"</b> is coming soon to DramaXHub. Enjoy the trailer and reviews!`; modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';}
+function closeComingSoon(){modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow='';}
+window.showComingSoon=showComingSoon; window.closeComingSoon=closeComingSoon;
 document.getElementById('modalClose').addEventListener('click', closeComingSoon);
-document.getElementById('modalOk').addEventListener('click', closeComingSoon);
-document.getElementById('modalTrailerBtn').addEventListener('click', ()=>{ closeComingSoon(); switchTab('trailer'); });
-modal.addEventListener('click', (e)=>{ if(e.target===modal) closeComingSoon(); });
-
-/* YT API ready */
-window.onYouTubeIframeAPIReady = function(){
-  if(activeTab==='trailer') initTrailerPlayer();
-};
-
-/* Header drawer */
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const mobileDrawer = document.getElementById('mobileDrawer');
-let drawerOpen=false;
-function toggleDrawer(){ drawerOpen=!drawerOpen; mobileDrawer.classList.toggle('open',drawerOpen); hamburgerBtn.classList.toggle('open',drawerOpen); document.body.style.overflow=drawerOpen?'hidden':''; }
-function closeDrawer(){ drawerOpen=false; mobileDrawer.classList.remove('open'); hamburgerBtn.classList.remove('open'); document.body.style.overflow=''; }
+document.getElementById('modalOk').addEventListener('click', ()=>{closeComingSoon(); location.href='./index.html';});
+document.getElementById('modalTrailerBtn').addEventListener('click', ()=>{closeComingSoon(); switchTab('trailer');});
+modal.addEventListener('click', (e)=>{if(e.target===modal) closeComingSoon();});
+window.onYouTubeIframeAPIReady=function(){if(activeTab==='trailer') initTrailerPlayer();};
+const hamburgerBtn=document.getElementById('hamburgerBtn'); const mobileDrawer=document.getElementById('mobileDrawer'); let drawerOpen=false;
+function toggleDrawer(){drawerOpen=!drawerOpen; mobileDrawer.classList.toggle('open',drawerOpen); hamburgerBtn.classList.toggle('open',drawerOpen); document.body.style.overflow=drawerOpen?'hidden':'';}
+function closeDrawer(){drawerOpen=false; mobileDrawer.classList.remove('open'); hamburgerBtn.classList.remove('open'); document.body.style.overflow='';}
 if(hamburgerBtn) hamburgerBtn.addEventListener('click', toggleDrawer);
-if(mobileDrawer) mobileDrawer.addEventListener('click', e=>{ if(e.target===mobileDrawer) closeDrawer(); });
-
+if(mobileDrawer) mobileDrawer.addEventListener('click', e=>{if(e.target===mobileDrawer) closeDrawer();});
 renderWatch();
 </script>
 </body>

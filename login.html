@@ -3,75 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login | DMXHUB</title>
-  <meta name="description" content="Login to DMXHUB" />
+  <title>Login | DramaXHub - DMXHUB - Continue Watching & History</title>
+  <meta name="description" content="Login to DramaXHub (DMXHUB) to continue watching, view history and get personalized Nollywood recommendations. Free movies, optional login." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <style>
-    .page-wrap{max-width:900px;margin:0 auto;padding:92px 20px 40px}
-    .glass{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:20px;margin-bottom:16px;backdrop-filter:blur(12px)}
-    .glass h1{font-size:2rem;font-weight:900;margin-bottom:10px}
-    .glass h2{font-size:1.2rem;font-weight:800;margin:18px 0 10px}
-    .glass p{color:rgba(255,255,255,0.72);line-height:1.7;font-size:0.92rem;margin-bottom:10px}
+    .page-wrap{max-width:900px;margin:0 auto;padding:92px 20px 40px;display:grid;grid-template-columns:1fr 380px;gap:20px}
+    @media(max-width:900px){.page-wrap{grid-template-columns:1fr}}
+    .glass{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px;margin-bottom:16px;backdrop-filter:blur(12px)}
+    .glass h1{font-size:1.8rem;font-weight:900;margin-bottom:10px}
+    .glass h2{font-size:1.1rem;font-weight:800;margin:18px 0 10px}
+    .glass p{color:rgba(255,255,255,0.72);line-height:1.7;font-size:0.9rem;margin-bottom:10px}
     .glass a{color:#1cb7ff}
     label{display:block;font-size:0.8rem;color:rgba(255,255,255,0.6);margin:12px 0 6px;font-weight:600}
-    input, textarea, select{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 14px;color:#fff;outline:none;font-family:inherit;font-size:0.9rem}
-    input:focus, textarea:focus, select:focus{border-color:rgba(28,183,255,0.4);background:rgba(255,255,255,0.1)}
+    input{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 14px;color:#fff;outline:none;font-family:inherit;font-size:0.9rem}
+    input:focus{border-color:rgba(28,183,255,0.4);background:rgba(255,255,255,0.1)}
     .btn-send{margin-top:16px;width:100%;background:linear-gradient(91deg,#1cb7ff,#2ff58b);color:#000;border:none;padding:12px;border-radius:999px;font-weight:800;cursor:pointer;transition:.15s}
     .btn-send:hover{transform:translateY(-1px)}
-    @media(max-width:768px){.page-wrap{padding:80px 14px 30px}}
+    .btn-google{width:100%;background:#fff;color:#000;border:none;padding:12px;border-radius:999px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px}
+    .btn-google img{width:18px;height:18px}
+    .divider{display:flex;align-items:center;gap:12px;margin:16px 0;color:rgba(255,255,255,0.3);font-size:0.8rem}
+    .divider::before,.divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.08)}
+    .benefit{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+    .benefit:last-child{border:none}
+    .benefit-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(91deg,rgba(28,183,255,0.15),rgba(47,245,139,0.15));display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+    .tab-switch{display:flex;background:rgba(255,255,255,0.06);border-radius:999px;padding:4px;margin-bottom:16px}
+    .tab-switch button{flex:1;padding:8px;border-radius:999px;border:none;background:transparent;color:rgba(255,255,255,0.6);font-weight:700;cursor:pointer;transition:.15s}
+    .tab-switch button.active{background:#fff;color:#000}
   </style>
 </head>
 <body>
 <header class="mbx-header" id="mainHeader">
   <div class="mbx-header-inner">
-    <a href="./index.html" class="mbx-logo">
-      <span class="mbx-logo-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="url(#g)"/><path d="M9 8.5L19.5 14L9 19.5V8.5Z" fill="black"/><defs><linearGradient id="g" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#1cb7ff"/><stop offset="1" stop-color="#2ff58b"/></linearGradient></defs></svg></span>
-      <span class="mbx-logo-text"><span class="logo-dmx">DMX</span><span class="logo-hub">HUB</span></span>
-      <span class="logo-dotcom">.COM</span>
-    </a>
-    <nav class="mbx-nav">
-      <a href="./index.html" class="nav-link">Home</a>
-      <a href="./about.html" class="nav-link">About</a>
-      <a href="./contact.html" class="nav-link">Contact</a>
-      <a href="./privacy.html" class="nav-link">Privacy</a>
-    </nav>
-    <div class="mbx-actions">
-      <a href="./index.html" class="btn-premium"><span class="premium-dot"></span> Browse</a>
-      <button class="mbx-hamburger" id="hamburgerBtn" type="button"><span></span><span></span><span></span></button>
-    </div>
+    <a href="./index.html" class="mbx-logo"><span class="mbx-logo-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="url(#g)"/><path d="M9 8.5L19.5 14L9 19.5V8.5Z" fill="black"/><defs><linearGradient id="g" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#1cb7ff"/><stop offset="1" stop-color="#2ff58b"/></linearGradient></defs></svg></span><span class="mbx-logo-text"><span class="logo-dmx">DMX</span><span class="logo-hub">HUB</span></span><span class="logo-dotcom">.COM</span></a>
+    <nav class="mbx-nav"><a href="./index.html" class="nav-link">Home</a><a href="./about.html" class="nav-link">About</a><a href="./contact.html" class="nav-link">Contact</a></nav>
+    <div class="mbx-actions"><a href="./index.html" class="btn-premium"><span class="premium-dot"></span> Browse Free</a><button class="mbx-hamburger" id="hamburgerBtn" type="button"><span></span><span></span><span></span></button></div>
   </div>
-  <div class="mbx-drawer" id="mobileDrawer">
-    <div class="drawer-inner">
-      <a href="./index.html">🏠 Home</a>
-      <a href="./about.html">ℹ️ About</a>
-      <a href="./contact.html">✉️ Contact</a>
-      <a href="./privacy.html">🔒 Privacy</a>
-      <a href="./login.html">👤 Login</a>
-    </div>
-  </div>
+  <div class="mbx-drawer" id="mobileDrawer"><div class="drawer-inner"><a href="./index.html">🏠 Home</a><a href="./about.html">ℹ️ About</a><a href="./contact.html">✉️ Contact</a><a href="./privacy.html">🔒 Privacy</a></div></div>
 </header>
 
-<div class="page-wrap" style="max-width:420px">
-  <div class="glass" style="text-align:center">
-    <div style="width:56px;height:56px;margin:0 auto 14px;border-radius:14px;background:linear-gradient(91deg,#1cb7ff,#2ff58b);display:flex;align-items:center;justify-content:center;font-size:26px">▶</div>
-    <h1 style="font-size:1.6rem">Welcome back</h1>
-    <p style="color:rgba(255,255,255,0.5)">Login to DMXHUB • MovieBox style</p>
-    <form onsubmit="event.preventDefault(); alert('Demo login - connect to your auth backend'); location.href='./index.html';" style="text-align:left;margin-top:18px">
-      <label>Email</label><input type="email" placeholder="you@example.com" required />
-      <label>Password</label><input type="password" placeholder="••••••••" required />
-      <button class="btn-send" type="submit">Login</button>
-      <div style="text-align:center;margin-top:14px;font-size:0.82rem;color:rgba(255,255,255,0.5)">Don't have account? <a href="#" style="color:#1cb7ff">Sign up</a> • <a href="./index.html" style="color:rgba(255,255,255,0.6)">Browse as guest</a></div>
+<div class="page-wrap">
+  <div class="glass" style="text-align:left">
+    <div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(91deg,#1cb7ff,#2ff58b);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:12px">▶</div>
+    <h1 id="formTitle">Welcome Back to DramaXHub</h1>
+    <p id="formSub" style="color:rgba(255,255,255,0.5)">All movies are free. Login unlocks Continue Watching, History & smart recommendations.</p>
+
+    <div class="tab-switch"><button id="loginTab" class="active" onclick="switchAuth('login')">Login</button><button id="signupTab" onclick="switchAuth('signup')">Sign Up</button></div>
+
+    <form id="authForm" onsubmit="handleAuth(event)">
+      <div id="nameField" style="display:none"><label>Full Name</label><input type="text" id="nameInput" placeholder="Your name" /></div>
+      <label>Email Address</label><input type="email" id="emailInput" placeholder="you@example.com" required />
+      <label>Password</label><input type="password" id="passInput" placeholder="••••••••" required />
+      <div id="confirmField" style="display:none"><label>Confirm Password</label><input type="password" id="confirmInput" placeholder="••••••••" /></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:0.8rem"><label style="display:flex;align-items:center;gap:6px;margin:0;color:rgba(255,255,255,0.6);font-weight:400"><input type="checkbox" id="remember" style="width:auto" checked /> Remember me</label><a href="#" onclick="alert('Password reset will be via /api/auth/reset - Cloudflare Workers will send email via MailChannels'); return false;">Forgot?</a></div>
+      <button class="btn-send" type="submit" id="submitBtn">Sign In</button>
+      <div class="divider"><span>or</span></div>
+      <button type="button" class="btn-google" onclick="handleGoogleLogin()"><img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="G"/> Continue with Google</button>
+      <div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com" data-context="signin" data-callback="onGoogleCredential"></div>
+      <p style="text-align:center;font-size:0.8rem;color:rgba(255,255,255,0.4);margin-top:14px" id="switchText">New to DramaXHub? <a href="#" onclick="switchAuth('signup'); return false;" style="color:#1cb7ff;font-weight:600">Create free account</a></p>
     </form>
+
+    <div style="margin-top:16px;background:rgba(28,183,255,0.08);border:1px solid rgba(28,183,255,0.15);border-radius:10px;padding:10px 12px;font-size:0.75rem;color:rgba(255,255,255,0.6)">🔒 Demo Mode: Currently saves to browser. When you deploy Cloudflare Workers + D1, this same form will POST to /api/auth/login and /api/auth/signup. Replace YOUR_GOOGLE_CLIENT_ID with real ID from Google Cloud Console.</div>
+  </div>
+
+  <div>
+    <div class="glass"><h2 style="margin-top:0">Why Login? Everything stays free</h2><div class="benefit"><div class="benefit-icon">⏯️</div><div><div style="font-weight:700;font-size:0.9rem">Continue Watching</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Pause any movie, close browser, come back later and resume from exact second. Works across devices when logged in.</div></div></div><div class="benefit"><div class="benefit-icon">📜</div><div><div style="font-weight:700;font-size:0.9rem">Watch History</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">See everything you watched, rewatch favorites, track progress.</div></div></div><div class="benefit"><div class="benefit-icon">🎯</div><div><div style="font-weight:700;font-size:0.9rem">Smart Recommendations</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Not just genre. We recommend based on actors you love, movies you finished, and your ratings.</div></div></div><div class="benefit"><div class="benefit-icon">⭐</div><div><div style="font-weight:700;font-size:0.9rem">Verified Reviews & Watchlist</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Your reviews get verified badge, plus save to personal watchlist.</div></div></div></div>
+    <div class="glass"><h2 style="margin-top:0">Current User</h2><div id="userBox" style="font-size:0.85rem;color:rgba(255,255,255,0.6)">Not logged in</div><button class="btn-send" style="background:rgba(255,255,255,0.08);color:#fff;margin-top:12px" onclick="logout()">Logout / Clear Demo</button></div>
+    <div class="glass"><h2 style="margin-top:0">Cloudflare Setup for Auth (Next Step)</h2><p style="font-size:0.8rem">1. Create D1 Database: <code>users, sessions, watch_progress, watch_history, reviews</code><br>2. Create Worker: <code>api/auth/*</code> handling signup/login/Google<br>3. Use Turnstile to block bots<br>4. Store JWT in KV + HttpOnly cookie<br>5. Frontend POSTs to Worker</p><a href="./index.html" style="background:#fff;color:#000;padding:8px 14px;border-radius:999px;font-weight:800;font-size:0.8rem;display:inline-block;margin-top:8px">← Continue Browsing Free</a></div>
   </div>
 </div>
 
 <script>
-const hb=document.getElementById('hamburgerBtn');const dr=document.getElementById('mobileDrawer');let o=false;
-function td(){o=!o;dr.classList.toggle('open',o);hb.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';}
-function cd(){o=false;dr.classList.remove('open');hb.classList.remove('open');document.body.style.overflow='';}
-if(hb)hb.addEventListener('click',td);if(dr)dr.addEventListener('click',e=>{if(e.target===dr)cd();});
-window.addEventListener('scroll',()=>{const h=document.getElementById('mainHeader'); if(window.scrollY>10) h.classList.add('scrolled'); else h.classList.remove('scrolled');});
+let authMode='login';
+function switchAuth(mode){authMode=mode; document.getElementById('loginTab').classList.toggle('active', mode==='login'); document.getElementById('signupTab').classList.toggle('active', mode==='signup'); document.getElementById('nameField').style.display=mode==='signup'?'block':'none'; document.getElementById('confirmField').style.display=mode==='signup'?'block':'none'; document.getElementById('formTitle').textContent=mode==='signup'?'Create Your Free Account':'Welcome Back to DramaXHub'; document.getElementById('formSub').textContent=mode==='signup'?'Join thousands watching free Nollywood in HD. Takes 15 seconds.':'All movies are free. Login unlocks Continue Watching, History & smart recommendations.'; document.getElementById('submitBtn').textContent=mode==='signup'?'Create Free Account':'Sign In'; document.getElementById('switchText').innerHTML=mode==='signup'?`Already have account? <a href="#" onclick="switchAuth('login'); return false;" style="color:#1cb7ff;font-weight:600">Login</a>`:`New to DramaXHub? <a href="#" onclick="switchAuth('signup'); return false;" style="color:#1cb7ff;font-weight:600">Create free account</a>`;}
+function handleAuth(e){e.preventDefault(); const email=document.getElementById('emailInput').value.trim(); const pass=document.getElementById('passInput').value; const name=document.getElementById('nameInput').value.trim(); const confirm=document.getElementById('confirmInput').value; if(authMode==='signup'){if(pass!==confirm){alert('Passwords do not match'); return;} if(pass.length<6){alert('Password should be at least 6 characters'); return;} const user={id:Date.now(), name: name|| email.split('@')[0], email, created: new Date().toISOString()}; localStorage.setItem('dmxhub_user', JSON.stringify(user)); alert('Account created! (Demo - local). In production this POSTs to /api/auth/signup on Cloudflare Workers + D1.'); } else { if(!email||!pass){alert('Enter email and password'); return;} const existing=JSON.parse(localStorage.getItem('dmxhub_user')||'null'); let user; if(existing && existing.email===email){user=existing;} else {user={id:Date.now(), name: email.split('@')[0], email, created: new Date().toISOString()};} localStorage.setItem('dmxhub_user', JSON.stringify(user)); alert('Logged in! (Demo). Now you have Continue Watching and History.');} updateUserBox(); setTimeout(()=>location.href='./index.html', 800);}
+function handleGoogleLogin(){const fakeUser={id:'google_'+Date.now(), name:'Google User', email:'user@gmail.com', provider:'google', verified:true}; localStorage.setItem('dmxhub_user', JSON.stringify(fakeUser)); alert('Google Login Demo successful! Replace YOUR_GOOGLE_CLIENT_ID with real ID, then Worker will verify credential at /api/auth/google using Google API.'); updateUserBox(); setTimeout(()=>location.href='./index.html', 800);}
+function onGoogleCredential(resp){ console.log('Google credential', resp); handleGoogleLogin(); }
+function logout(){localStorage.removeItem('dmxhub_user'); updateUserBox(); alert('Logged out, local data cleared. Progress kept locally for demo.');}
+function updateUserBox(){const box=document.getElementById('userBox'); try{const u=JSON.parse(localStorage.getItem('dmxhub_user')||'null'); if(u){box.innerHTML=`<div style="font-weight:700;color:#fff">${u.name}</div><div style="font-size:0.8rem">${u.email}</div><div style="font-size:0.7rem;color:#2ff58b;margin-top:4px">✓ Logged in • Continue Watching enabled</div>`;} else {box.textContent='Not logged in - browsing as guest (still free, but no history)';}}catch{box.textContent='Not logged in';}}
+updateUserBox();
+const hb=document.getElementById('hamburgerBtn');const dr=document.getElementById('mobileDrawer');let o=false; function td(){o=!o;dr.classList.toggle('open',o);hb.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';} function cd(){o=false;dr.classList.remove('open');hb.classList.remove('open');document.body.style.overflow='';} if(hb)hb.addEventListener('click',td); if(dr)dr.addEventListener('click',e=>{if(e.target===dr)cd();});
 </script>
 </body>
 </html>
